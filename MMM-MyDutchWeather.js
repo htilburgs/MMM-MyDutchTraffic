@@ -1,29 +1,25 @@
 /*
 //-------------------------------------------
-MMM-MyDutchWeatherMWB
+MMM-MyTraffic
 Copyright (C) 2019 - H. Tilburgs
 MIT License
 //-------------------------------------------
 */
 
-Module.register('MMM-MyDutchWeather', {
+Module.register('MMM-MyTraffic', {
 
 	// Default values
 	defaults: {
-		latitude: null,					// Latitude of your city
-		longitude: null,				// Longitude of your city
-		apiKey: null,					// API Key - Get for free at http://weerlive.nl/api/toegang/index.php
-		showIcons: true,				// Display Icons or Text
-		maxWidth: "500px",				// Max width wrapper
+		maxWidth: "500px",			// Max width wrapper
 		animationSpeed: 1000, 			// fade in and out speed
 		initialLoadDelay: 1000,
 		retryDelay: 2500,
-		updateInterval: 10 * 60 * 1000	// every 10 minutes
+		updateInterval: 10 * 60 * 1000		// every 10 minutes
 	},
 		
 	// Define stylesheet
 	getStyles: function () {
-		return ["MMM-MyDutchWeather.css", "weather-icons.css"];
+		return ["MMM-MyTraffic.css];
 	},  
 
 	// Define required scripts.
@@ -39,17 +35,17 @@ Module.register('MMM-MyDutchWeather', {
 		return false;
 	},
 	
-	start: function() {
+	start: function () {
 		Log.info("Starting module: " + this.name);
 		requiresVersion: "2.1.0",	
 			
 		// Set locales
-		this.url = "http://weerlive.nl/api/json-data-10min.php?key=" + this.config.apiKey + "&locatie=" + this.config.latitude + "," + this.config.longitude;	
-		this.MWB = [];			// <-- Create empty MWB array
+		this.url = "https://www.anwb.nl/feeds/gethf"
+		this.MTR = [];			// <-- Create empty MWB array
 		this.scheduleUpdate();       	// <-- When the module updates (see below)
 	},
 
-	getDom: function() {
+	getDom: function () {
 		
 		// creating the table
 		var table = document.createElement("table");
@@ -67,8 +63,9 @@ Module.register('MMM-MyDutchWeather', {
             	    return wrapper;
         	}	
 
-		var MWB = this.MWB;
+		var MTR = this.MTR;
 
+/*
 		// creating the tablerows
 		var WoonplaatsRow = document.createElement("tr");
 		WoonplaatsRow.className = "woonplaats-row";
@@ -254,33 +251,33 @@ Module.register('MMM-MyDutchWeather', {
 		table.appendChild(FooterRow);
 			
 		return table;		
-		
+*/		
 	}, // <-- closes the getDom function from above
 		
 	// this processes your data
-	processMWB: function(data) { 
-		this.MWB = data; 
-		console.log(this.MWB); // uncomment to see if you're getting data (in dev console)
+	processMTR: function (data) { 
+		this.MTR = data; 
+		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
 	
 	// this tells module when to update
-	scheduleUpdate: function() { 
+	scheduleUpdate: function () { 
 		setInterval(() => {
-		    this.getMWB();
+		    this.getMTR();
 		}, this.config.updateInterval);
-		this.getMWB();
+		this.getMTR();
 		var self = this;
 	},
 	  
 	// this asks node_helper for data
-	getMWB: function() { 
-		this.sendSocketNotification('GET_MWB', this.url);
+	getMTR: function() { 
+		this.sendSocketNotification('GET_MYTRAFFIC', this.url);
 	},
 	
 	// this gets data from node_helper
 	socketNotificationReceived: function(notification, payload) { 
-		if (notification === "MWB_RESULT") {
+		if (notification === "MYTRAFFIC_RESULT") {
 		    this.processMWB(payload);
 		}
 		this.updateDom(this.config.initialLoadDelay);
