@@ -1,6 +1,6 @@
 /*
 //-------------------------------------------
-MMM-MyDutchWeather
+MMM-MyTraffic
 Copyright (C) 2019 - H. Tilburgs
 MIT License
 //-------------------------------------------
@@ -15,23 +15,23 @@ module.exports = NodeHelper.create({
           console.log("Starting node_helper for: " + this.name);
   },
 
-  getMWB: function(url) {
+  getMTR: function(url) {
 	request({
 	url: url,
 	method: 'GET'
 	}, 
 	(error, response, body) => {
 		if (!error && response.statusCode == 200) {
-		var result = JSON.parse(body).liveweer['0'];			// JSON data path - object.liveweer.0
+		var result = JSON.parse(body).liveweer['0'];				// JSON data path - object.liveweer.0
 		console.log(response.statusCode + result);				// uncomment to see in terminal
-		this.sendSocketNotification('MWB_RESULT', result);
+		this.sendSocketNotification('MYTRAFFIC_RESULT', result);
 		}
         });
     },
 
   socketNotificationReceived: function(notification, payload) {
-            if (notification === 'GET_MWB') {
-            this.getMWB(payload);
+            if (notification === 'GET_MYTRAFFIC') {
+            this.getMTR(payload);
             }
   }
 });
