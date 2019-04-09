@@ -16,12 +16,12 @@ Module.register('MMM-MyTraffic', {
 		retryDelay: 2500,
 		updateInterval: 10 * 60 * 1000		// every 10 minutes
 	},
-		
+/*		
 	// Define stylesheet
 	getStyles: function () {
 		return ["MMM-MyTraffic.css];
 	},  
-
+*/
 	// Define required scripts.
 	getScripts: function () {
 		return ["moment.js"];
