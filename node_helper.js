@@ -24,6 +24,23 @@ module.exports = NodeHelper.create({
 		if (!error && response.statusCode == 200) {
 		var result = JSON.parse(body).roadEntries;				// JSON data path - object.roadEntries.x 
 		console.log(response.statusCode + result);				// uncomment to see in terminal
+			
+		var jams = []
+		var construction_zones= []
+		var radars = []
+
+		for(var road of roadEntries){
+  			for (var jam of road.events.trafficjams){
+     			jams.push({name: road.road, jam})
+  			}
+  			for (var construction of road.events.roadWorks){
+     			construction_zones.push({name: road.road,construction})
+  			}
+  			for (var radar of road.events.radars){
+     			radars.push({{name: road.road,radar})
+  			}
+		}
+		// now u have lists of jams, construction-zones and radar positions, with their road name	
 		this.sendSocketNotification('MYTRAFFIC_RESULT', result);
 		}
         });
