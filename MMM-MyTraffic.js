@@ -66,7 +66,7 @@ Module.register('MMM-MyTraffic', {
 		var MTR = this.MTR;
 
 		var objectKeys = Object.keys(MTR);
-		console.log(‘objectKeys: ‘, this.objectKeys);
+		console.log(this.objectKeys);
 
 	}, // <-- closes the getDom function from above
 		
