@@ -19,13 +19,12 @@ module.exports = NodeHelper.create({
 	request({
 	url: url,
 	method: 'GET'
-	}, 
-	(error, response, body) => {
-		if (!error && response.statusCode == 200) {
-		var result = JSON.parse(body).roadEntries;			// JSON data path - object.roadEntries.x 	
-		console.log(response.statusCode + result);			// uncomment to see in terminal
-		this.sendSocketNotification('MYTRAFFIC_RESULT', result);
-		}
+	}, (error, response, body) => {
+	if (!error && response.statusCode == 200) {
+	var result = JSON.parse(body).roadEntries;			// JSON data path - object.roadEntries.x 	
+	console.log(response.statusCode + result);			// uncomment to see in terminal
+	this.sendSocketNotification('MYTRAFFIC_RESULT', result);
+	}
         });
     },
 
