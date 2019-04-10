@@ -97,22 +97,17 @@ Module.register('MMM-MyTraffic', {
 		
 		for (var i = 0; i < jams.length; i++) {
 			
-			var jamsRow = document.createElement("tr");
+			var jamsReasonRow = document.createElement("tr");
+			jamsReasonRow.innerHTML = jams[i].jam.reason;
+			table.appendChild(jamsReasonRow);
 			
-			var jamsReason = document.createElement("td");
-			jamsReason.innerHTML = jams[i].reason;
-			jamsRow.appendChild(jamsReason);
-			table.appendChild(jamsRow);
+			var jamsStartRow = document.createElement("td");
+			jamsStartRow.innerHTML = jams[i].jam.segStart;
+			table.appendChild(jamsStartRow);
 			
-			var jamsStart = document.createElement("td");
-			jamsStart.innerHTML = jams[i].segStart;
-			jamsRow.appendChild(jamsStart);
-			table.appendChild(jamsRow);
-			
-			var jamsEnd = document.createElement("td");
-			jamsEnd.innerHTML = jams[i].segEnd;
-			jamsRow.appendChild(jamsEnd);
-			table.appendChild(jamsRow);
+			var jamsEndRow = document.createElement("td");
+			jamsEndRow.innerHTML = jams[i].jam.segEnd;
+			table.appendChild(jamsEndRow);
 		}
 		
 		return table;
