@@ -29,7 +29,7 @@ module.exports = NodeHelper.create({
 		var construction_zones= []
 		var radars = []
 
-		for(var road of roadEntries){
+		for(var road of result){
   			for (var jam of road.events.trafficjams){
      			jams.push({name: road.road, jam})
   			}
@@ -37,7 +37,7 @@ module.exports = NodeHelper.create({
      			construction_zones.push({name: road.road,construction})
   			}
   			for (var radar of road.events.radars){
-     			radars.push({{name: road.road,radar})
+     			radars.push({name: road.road,radar})
   			}
 		}
 		// now u have lists of jams, construction-zones and radar positions, with their road name	
