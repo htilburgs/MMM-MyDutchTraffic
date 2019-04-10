@@ -15,7 +15,7 @@ module.exports = NodeHelper.create({
           console.log("Starting node_helper for: " + this.name);
   },
 
-  getMTR: function(url) {
+  getTRAFFIC: function(url) {
 	request({
 	url: url,
 	method: 'GET'
@@ -49,7 +49,7 @@ module.exports = NodeHelper.create({
 
   socketNotificationReceived: function(notification, payload) {
             if (notification === 'GET_MYTRAFFIC') {
-            this.getMTR(payload);
+            this.getTRAFFIC(payload);
             }
   }
 });
