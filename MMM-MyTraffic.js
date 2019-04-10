@@ -70,7 +70,7 @@ Module.register('MMM-MyTraffic', {
 		var construction_zones= []
 		var radars = []
 
-		for(var road of MTR.roadEntries){
+		for (var road of MTR.roadEntries){
   			for (var jam of road.events.trafficJams){
 			jams.push({name: road.road, jam})
 			}
@@ -81,6 +81,10 @@ Module.register('MMM-MyTraffic', {
     			radars.push({name: road.road,radar})
   			}
 		}	
+		
+		for (var i = 0, length = jams.length; i < length; i++) {
+   		 console.log(jams[i]);
+		}
 		
 		return table;
 
