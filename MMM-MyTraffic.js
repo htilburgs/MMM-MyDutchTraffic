@@ -62,8 +62,25 @@ Module.register('MMM-MyTraffic', {
             	    wrapper.classList.add("bright", "light", "small");
             	    return wrapper;
         	}	
-
+		
 		var MTR = this.MTR;
+		
+		// Create lists of jams, construction-zones and radar positions, with their road name	
+		var jams = []
+		var construction_zones= []
+		var radars = []
+
+		for(var road of result){
+  			for (var jam of road.events.trafficjams){
+			jams.push({name: road.road, jam})
+			}
+  			for (var construction of road.events.roadWorks){
+     			construction_zones.push({name: road.road,construction})
+  			}
+  			for (var radar of road.events.radars){
+     			radars.push({name: road.road,radar})
+  			}
+		}		
 
 	}, // <-- closes the getDom function from above
 		
