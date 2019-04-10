@@ -96,7 +96,7 @@ Module.register('MMM-MyTraffic', {
 		for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
 			jamsNameRow.className = "small";
-			jamsNameRow.innerHTML = jams[i].name;
+			jamsNameRow.innerHTML = '<i class="fas fa-car"></i>' + jams[i].name;
 			table.appendChild(jamsNameRow);
 			
 			var jamsReasonRow = document.createElement("tr");
@@ -104,7 +104,7 @@ Module.register('MMM-MyTraffic', {
 			jamsReasonRow.innerHTML = jams[i].jam.reason;
 			table.appendChild(jamsReasonRow);
 			
-			var jamsFromRow = document.createElement("td");
+			var jamsFromRow = document.createElement("tr");
 			jamsFromRow.className = "small";
 			jamsFromRow.innerHTML = jams[i].jam.from;
 			table.appendChild(jamsFromRow);
@@ -117,7 +117,7 @@ Module.register('MMM-MyTraffic', {
 		for (var i = 0; i < radars.length; i++) {			
 			var radarsRow = document.createElement("tr");
 			radarsRow.className = "small";
-			radarsRow.innerHTML = radars[i].name + " - " + radars[i].radar.description;
+			radarsRow.innerHTML = '<i class="fas fa-camera"></i>' + radars[i].name + " - " + radars[i].radar.description;
 			table.appendChild(radarsRow);
 		}
 		
