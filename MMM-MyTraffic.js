@@ -19,7 +19,7 @@ Module.register('MMM-MyTraffic', {
 		
 	// Define stylesheet
 	getStyles: function () {
-		return ["MMM-MyTraffic.css];
+		return ["MMM-MyTraffic.css"];
 	},  
 
 	// Define required scripts.
