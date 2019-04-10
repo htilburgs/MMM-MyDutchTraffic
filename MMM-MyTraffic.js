@@ -70,7 +70,7 @@ Module.register('MMM-MyTraffic', {
 		var construction_zones= []
 		var radars = []
 
-		for(var road of result){
+		for(var road of roadEntries){
   			for (var jam of road.events.trafficjams){
 			jams.push({name: road.road, jam})
 			}
@@ -86,7 +86,7 @@ Module.register('MMM-MyTraffic', {
 		
 	
 	// this processes your data
-	processMTR: function (data) { 
+	processTRAFFIC: function (data) { 
 		this.MTR = data; 
 		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
@@ -95,14 +95,14 @@ Module.register('MMM-MyTraffic', {
 	// this tells module when to update
 	scheduleUpdate: function () { 
 		setInterval(() => {
-		    this.getMTR();
+		    this.getTRAFFIC();
 		}, this.config.updateInterval);
-		this.getMTR();
+		this.getTRAFFIC();
 		var self = this;
 	},
 	  
 	// this asks node_helper for data
-	getMTR: function() { 
+	getTRAFFIC: function() { 
 		this.sendSocketNotification('GET_MYTRAFFIC', this.url);
 	},
 	
