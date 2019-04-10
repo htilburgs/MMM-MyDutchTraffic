@@ -81,9 +81,6 @@ Module.register('MMM-MyTraffic', {
      			radars.push({name: road.road,radar})
   			}}
 		
-		document.getElementById().innerHTML = jams;
-		table.appendchild(jams);
-		
 		return table;
 
 	}, // <-- closes the getDom function from above
