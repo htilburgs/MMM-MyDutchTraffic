@@ -109,7 +109,7 @@ Module.register('MMM-MyTraffic', {
 	// this gets data from node_helper
 	socketNotificationReceived: function(notification, payload) { 
 		if (notification === "MYTRAFFIC_RESULT") {
-		    this.processMTR(payload);
+		    this.processTRAFFIC(payload);
 		}
 		this.updateDom(this.config.initialLoadDelay);
 	},
