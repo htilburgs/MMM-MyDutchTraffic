@@ -112,7 +112,7 @@ Module.register('MMM-MyTraffic', {
 		for (var i = 0; i < radars.length; i++) {			
 			var radarsRow = document.createElement("tr");
 			radarsRow.className = "small";
-			radarsRow.innerHTML = jams[i].radar.description;
+			radarsRow.innerHTML = radars[i].radar.description;
 			table.appendChild(radarsRow);
 		}
 		
