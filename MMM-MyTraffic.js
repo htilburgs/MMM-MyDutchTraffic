@@ -86,30 +86,34 @@ Module.register('MMM-MyTraffic', {
 		for (var i = 0; i < jams.length; i++) {
    		 console.log(jams[i]);
 		}
-		for (var i = 0, length = constructions.length; i < length; i++) {
+		for (var i = 0; i < constructions.length; i++) {
    		 console.log(constructions[i]);
 		}
-		for (var i = 0, length = radars.length; i < length; i++) {
+		for (var i = 0; i < radars.length; i++) {
    		 console.log(radars[i]);
 		}
 		
-		
-		for (var i = 0; i < jams.length; i++) {
-			
+		for (var i = 0; i < jams.length; i++) {			
 			var jamsReasonRow = document.createElement("tr");
 			jamsReasonRow.className = "small";
 			jamsReasonRow.innerHTML = jams[i].jam.reason;
 			table.appendChild(jamsReasonRow);
 			
-			var jamsStartRow = document.createElement("td");
-			jamsStartRow.className = "small";
-			jamsStartRow.innerHTML = jams[i].jam.segStart;
-			table.appendChild(jamsStartRow);
-			
-			var jamsEndRow = document.createElement("td");
-			jamsEndRow.className = "small";
-			jamsEndRow.innerHTML = jams[i].jam.segEnd;
-			table.appendChild(jamsEndRow);
+			var jamsFromRow = document.createElement("td");
+			jamsFromRow.className = "small";
+			jamsFromRow.innerHTML = jams[i].jam.from;
+			table.appendChild(jamsFromRow);
+		}
+		
+		var spacer = document.createElement("span");
+		spacer.innerHTML = "&nbsp;";
+		table.appendChild(spacer);
+		
+		for (var i = 0; i < radars.length; i++) {			
+			var radarsRow = document.createElement("tr");
+			radarsRow.className = "small";
+			radarsRow.innerHTML = jams[i].radar.description;
+			table.appendChild(radarsRow);
 		}
 		
 		return table;
