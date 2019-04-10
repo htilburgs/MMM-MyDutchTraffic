@@ -82,7 +82,7 @@ Module.register('MMM-MyTraffic', {
   			}
 		}	
 		
-		for (var i = 0, length = jams.length; i < length; i++) {
+		for (var i = 0; i < jams.length; i++) {
    		 console.log(jams[i]);
 		}
 		
@@ -93,6 +93,19 @@ Module.register('MMM-MyTraffic', {
 		for (var i = 0, length = radars.length; i < length; i++) {
    		 console.log(radars[i]);
 		}
+		
+		var html = "<table border='1|1'>";
+		for (var i = 0; i < jams.length; i++) {
+   		 html+="<tr>";
+    		html+="<td>"+jams[i].reason+"</td>";
+    		html+="<td>"+jams[i].segStart+"</td>";
+    		html+="<td>"+jams[i].segEnd+"</td>";
+
+    		html+="</tr>";
+
+		}
+		html+="</table>";
+		document.getElementById("box").innerHTML = html;
 		
 		return table;
 
