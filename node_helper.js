@@ -36,7 +36,3 @@ module.exports = NodeHelper.create({
             }
   }
 });
-
-JSON.parse('[{"wark":"targ"},{"wark":"lot"}]').forEach(function(element) { console.log(element.wark); })  
-VM466:1 targ
-VM466:1 lot
