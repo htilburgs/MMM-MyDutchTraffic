@@ -22,8 +22,9 @@ module.exports = NodeHelper.create({
 	}, 
 	(error, response, body) => {
 		if (!error && response.statusCode == 200) {
-		var result = JSON.parse(body).roadEntries;				// JSON data path - object.roadEntries.x 
-		console.log(response.statusCode + result);				// uncomment to see in terminal
+//		var result = JSON.parse(body).roadEntries;				// JSON data path - object.roadEntries.x 
+	var result = JSON.parse(body).roadEntries.forEach(function(element) {console.log(element.result);
+//		console.log(response.statusCode + result);				// uncomment to see in terminal
 		this.sendSocketNotification('MYTRAFFIC_RESULT', result);
 		}
         });
@@ -35,3 +36,7 @@ module.exports = NodeHelper.create({
             }
   }
 });
+
+JSON.parse('[{"wark":"targ"},{"wark":"lot"}]').forEach(function(element) { console.log(element.wark); })  
+VM466:1 targ
+VM466:1 lot
