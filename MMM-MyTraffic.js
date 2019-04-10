@@ -110,9 +110,9 @@ Module.register('MMM-MyTraffic', {
 			table.appendChild(jamsFromRow);
 		}
 		
-//		var spacer = document.createElement("span");
-//		spacer.innerHTML = "&nbsp;";
-//		table.appendChild(spacer);
+		var spacer = document.createElement("span");
+		spacer.innerHTML = "&nbsp;";
+		table.appendChild(spacer);
 		
 		for (var i = 0; i < radars.length; i++) {			
 			var radarsRow = document.createElement("tr");
