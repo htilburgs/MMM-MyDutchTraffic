@@ -94,18 +94,26 @@ Module.register('MMM-MyTraffic', {
    		 console.log(radars[i]);
 		}
 		
-		var html = "<table border='1|1'>";
+		
 		for (var i = 0; i < jams.length; i++) {
-   		 html+="<tr>";
-    		html+="<td>"+jams[i].reason+"</td>";
-    		html+="<td>"+jams[i].segStart+"</td>";
-    		html+="<td>"+jams[i].segEnd+"</td>";
-
-    		html+="</tr>";
-
+			
+			var jamsRow = document.createElement("tr");
+			
+			var jamsReason = document.createElement("td");
+			jamsReason.innerHTML = jams[i].reason;
+			jamsRow.appendChild(jamsReason);
+			table.appendChild(jamsRow);
+			
+			var jamsStart = document.createElement("td");
+			jamsStart.innerHTML = jams[i].segStart;
+			jamsRow.appendChild(jamsStart);
+			table.appendChild(jamsRow);
+			
+			var jamsEnd = document.createElement("td");
+			jamsEnd.innerHTML = jams[i].segEnd;
+			jamsRow.appendChild(jamsEnd);
+			table.appendChild(jamsRow);
 		}
-		html+="</table>";
-		document.getElementById("box").innerHTML = html;
 		
 		return table;
 
