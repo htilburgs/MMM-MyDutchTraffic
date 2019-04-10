@@ -93,7 +93,12 @@ Module.register('MMM-MyTraffic', {
    		 console.log(radars[i]);
 		}
 		
-		for (var i = 0; i < jams.length; i++) {			
+		for (var i = 0; i < jams.length; i++) {		
+			var jamsNameRow = document.createElement("tr");
+			jamsNameRow.className = "small";
+			jamsNameRow.innerHTML = jams[i].name;
+			table.appendChild(jamsNameRow);
+			
 			var jamsReasonRow = document.createElement("tr");
 			jamsReasonRow.className = "small";
 			jamsReasonRow.innerHTML = jams[i].jam.reason;
