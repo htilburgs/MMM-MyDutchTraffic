@@ -67,7 +67,7 @@ Module.register('MMM-MyTraffic', {
 		
 		// Create lists of jams, construction-zones and radar positions, with their road name	
 		var jams = []
-		var construction_zones= []
+		var constructions = []
 		var radars = []
 
 		for (var road of MTR.roadEntries){
@@ -75,7 +75,7 @@ Module.register('MMM-MyTraffic', {
 			jams.push({name: road.road, jam})
 			}
   			for (var construction of road.events.roadWorks){
-    			construction_zones.push({name: road.road,construction})
+    			constructions.push({name: road.road,construction})
   			}
   			for (var radar of road.events.radars){
     			radars.push({name: road.road,radar})
@@ -84,6 +84,14 @@ Module.register('MMM-MyTraffic', {
 		
 		for (var i = 0, length = jams.length; i < length; i++) {
    		 console.log(jams[i]);
+		}
+		
+		for (var i = 0, length = constructions.length; i < length; i++) {
+   		 console.log(constructions[i]);
+		}
+		
+		for (var i = 0, length = radars.length; i < length; i++) {
+   		 console.log(radars[i]);
 		}
 		
 		return table;
