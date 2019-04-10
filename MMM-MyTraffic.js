@@ -65,7 +65,8 @@ Module.register('MMM-MyTraffic', {
 
 		var MTR = this.MTR;
 
-		showObjectjQuery(MTR);
+		var objectKeys = Object.keys(MTR);
+		console.log(‘objectKeys: ‘, objectKeys);
 /*
 		// creating the tablerows
 		var WoonplaatsRow = document.createElement("tr");
@@ -262,15 +263,6 @@ Module.register('MMM-MyTraffic', {
 		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
-
-	function showObjectjQuery(obj) {
- 		 var result = "";
-  		 $.each(obj, function(k, v) {
-   		 result += k + " , " + v + "\n";
-  		 });
-  	return result;
-	},
-
 	
 	// this tells module when to update
 	scheduleUpdate: function () { 
