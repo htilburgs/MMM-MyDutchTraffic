@@ -135,7 +135,7 @@ Module.register('MMM-MyTraffic', {
 		for (var i = 0; i < radars.length; i++) {			
 			var constructionsRow = document.createElement("tr");
 			constructionsRow.className = "xsmall";
-			constructionsRow.innerHTML = '<i class="tr-traffic-cone"></i> ' + constructions[i].name + " - " + constructions[i].construction.startDate + " t/m " constructions[i].construction.stopDate;
+			constructionsRow.innerHTML = '<i class="tr-traffic-cone"></i> ' + constructions[i].name + " - " + constructions[i].construction.startDate + " t/m " + constructions[i].construction.stopDate;
 			table.appendChild(constructionsRow);
 			
 			var constructionsRow = document.createElement("tr");
