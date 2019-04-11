@@ -10,6 +10,10 @@ Module.register('MMM-MyTraffic', {
 
 	// Default values
 	defaults: {
+		showJams: true,				// Show Trafficjams
+		showConstructions: true,		// Show Constructions
+		showRadars: true,			// Show Radar controles
+		sortBy: null,				// Way of sorting the information
 		maxWidth: "500px",			// Max width wrapper
 		animationSpeed: 1000, 			// fade in and out speed
 		initialLoadDelay: 1000,
@@ -120,6 +124,10 @@ Module.register('MMM-MyTraffic', {
 			radarsRow.innerHTML = '<i class="fas fa-camera"></i> ' + radars[i].name + " - " + radars[i].radar.description;
 			table.appendChild(radarsRow);
 		}
+		
+		var spacer = document.createElement("tr");
+		spacer.innerHTML = "&nbsp;";
+		table.appendChild(spacer);
 		
 		return table;
 
