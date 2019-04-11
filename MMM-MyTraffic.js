@@ -100,19 +100,19 @@ Module.register('MMM-MyTraffic', {
 		for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
 			jamsNameRow.className = "xsmall";
-			jamsNameRow.innerHTML = '<i class="fas fa-car"></i> ' + jams[i].name;
+			jamsNameRow.innerHTML = '<i class="fas fa-car"></i> ' + jams[i].name + " - " + jams[i].jam.startDate;
 			table.appendChild(jamsNameRow);
 			
 			var jamsReasonRow = document.createElement("tr");
 			jamsReasonRow.className = "xsmall";
-			jamsReasonRow.innerHTML = jams[i].jam.reason;
+			jamsReasonRow.innerHTML = jams[i].jam.description;
 			table.appendChild(jamsReasonRow);
 			
-			var jamsFromRow = document.createElement("tr");
+/*			var jamsFromRow = document.createElement("tr");
 			jamsFromRow.className = "xsmall";
 			jamsFromRow.innerHTML = jams[i].jam.from;
 			table.appendChild(jamsFromRow);
-		}
+*/		}
 		
 		var spacer = document.createElement("tr");
 		spacer.innerHTML = "&nbsp;";
