@@ -26,11 +26,14 @@
 
 .tr-traffic-camera:before {
   content: "\e900";
+  color: red;
 }
 .tr-traffic-jam:before {
   content: "\e901";
+  color: yellow:
 }
 .tr-traffic-cone:before {
   content: "\e902";
+  color: orange;
 }
 
