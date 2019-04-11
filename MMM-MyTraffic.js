@@ -100,7 +100,7 @@ Module.register('MMM-MyTraffic', {
 		for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
 			jamsNameRow.className = "xsmall";
-			jamsNameRow.innerHTML = '<i class="fas fa-car"></i> ' + jams[i].name + " - " + jams[i].jam.startDate;
+			jamsNameRow.innerHTML = '<i class="fas fa-car"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			table.appendChild(jamsNameRow);
 			
 			var jamsReasonRow = document.createElement("tr");
