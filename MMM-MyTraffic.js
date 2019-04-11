@@ -97,6 +97,7 @@ Module.register('MMM-MyTraffic', {
    		 console.log(radars[i]);
 		}
 		
+		// Display Trafic Jam information
 		for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
 			jamsNameRow.className = "xsmall";
@@ -118,6 +119,7 @@ Module.register('MMM-MyTraffic', {
 		spacer.innerHTML = "&nbsp;";
 		table.appendChild(spacer);
 		
+		//Display Trafic Camera (Radar) information
 		for (var i = 0; i < radars.length; i++) {			
 			var radarsRow = document.createElement("tr");
 			radarsRow.className = "xsmall";
@@ -128,6 +130,19 @@ Module.register('MMM-MyTraffic', {
 		var spacer = document.createElement("tr");
 		spacer.innerHTML = "&nbsp;";
 		table.appendChild(spacer);
+		
+		//Display Traffic Constructions information
+		for (var i = 0; i < radars.length; i++) {			
+			var constructionsRow = document.createElement("tr");
+			constructionsRow.className = "xsmall";
+			constructionsRow.innerHTML = '<i class="tr-traffic-cone"></i> ' + constructions[i].name + " - " + constructions[i].construction.startDate + " t/m " constructions[i].construction.stopDate;
+			table.appendChild(constructionsRow);
+			
+			var constructionsRow = document.createElement("tr");
+			constructionsRow.className = "xsmall";
+			constructionsRow.innerHTML = constructions[i].construction.description;
+			table.appendChild(constructionsRow);
+		}
 		
 		return table;
 
