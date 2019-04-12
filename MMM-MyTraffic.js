@@ -102,9 +102,14 @@ Module.register('MMM-MyTraffic', {
 		   for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
 			jamsNameRow.className = "xsmall";
-			jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
-			table.appendChild(jamsNameRow);
-			
+			if (typeof jams[i].jam.startDate !== 'undefined') {
+				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+				} else
+				{
+				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
+				}
+			table.appendChild(jamsNameRow);		   
+			   
 			var jamsReasonRow = document.createElement("tr");
 			jamsReasonRow.className = "xsmall";
 			jamsReasonRow.innerHTML = jams[i].jam.description;
