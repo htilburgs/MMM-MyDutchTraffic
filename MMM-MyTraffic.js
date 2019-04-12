@@ -117,12 +117,12 @@ Module.register('MMM-MyTraffic', {
 		   }
 		}
 		
-		if (this.config.showJams != false) {
+/*		if (this.config.showJams != false) {
 			var spacer = document.createElement("tr");
 			spacer.innerHTML = "&nbsp;";
 			table.appendChild(spacer);
 		}
-		
+*/		
 		//Display Trafic Camera (Radar) information
 		if (this.config.showRadars != false) {		
 		   for (var i = 0; i < radars.length; i++) {			
@@ -133,12 +133,12 @@ Module.register('MMM-MyTraffic', {
 		   }
 		}
 		
-		if (this.config.showRadars != false) {
+/*		if (this.config.showRadars != false) {
 			var spacer = document.createElement("tr");
 			spacer.innerHTML = "&nbsp;";
 			table.appendChild(spacer);
 		}
-		
+*/		
 		//Display Traffic Constructions information
 		if (this.config.showConstructions != false) {		
 		   for (var i = 0; i < radars.length; i++) {			
