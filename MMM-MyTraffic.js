@@ -13,7 +13,7 @@ Module.register('MMM-MyTraffic', {
 		showJams: true,				// Show Trafficjams
 		showConstructions: true,		// Show Constructions
 		showRadars: true,			// Show Radar controles
-		sortBy: null,				// Way of sorting the information
+		sortBy: null,				// Way of sorting the information - FUTURE OPTION
 		maxWidth: "500px",			// Max width wrapper
 		animationSpeed: 1000, 			// fade in and out speed
 		initialLoadDelay: 1000,
@@ -98,7 +98,8 @@ Module.register('MMM-MyTraffic', {
 		}
 		
 		// Display Trafic Jam information
-		for (var i = 0; i < jams.length; i++) {		
+		if (this.config.showJams != false) {
+		   for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
 			jamsNameRow.className = "xsmall";
 			jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
@@ -108,23 +109,21 @@ Module.register('MMM-MyTraffic', {
 			jamsReasonRow.className = "xsmall";
 			jamsReasonRow.innerHTML = jams[i].jam.description;
 			table.appendChild(jamsReasonRow);
-			
-/*			var jamsFromRow = document.createElement("tr");
-			jamsFromRow.className = "xsmall";
-			jamsFromRow.innerHTML = jams[i].jam.from;
-			table.appendChild(jamsFromRow);
-*/		}
+		   }
+		}
 		
 		var spacer = document.createElement("tr");
 		spacer.innerHTML = "&nbsp;";
 		table.appendChild(spacer);
 		
 		//Display Trafic Camera (Radar) information
-		for (var i = 0; i < radars.length; i++) {			
+		if (this.config.showRadars != false) {		
+		   for (var i = 0; i < radars.length; i++) {			
 			var radarsRow = document.createElement("tr");
 			radarsRow.className = "xsmall";
 			radarsRow.innerHTML = '<i class="tr-traffic-camera"></i> ' + radars[i].name + " - " + radars[i].radar.description;
 			table.appendChild(radarsRow);
+		   }
 		}
 		
 		var spacer = document.createElement("tr");
@@ -132,7 +131,8 @@ Module.register('MMM-MyTraffic', {
 		table.appendChild(spacer);
 		
 		//Display Traffic Constructions information
-		for (var i = 0; i < radars.length; i++) {			
+		if (this.config.showConstructions != false) {		
+		   for (var i = 0; i < radars.length; i++) {			
 			var constructionsRow = document.createElement("tr");
 			constructionsRow.className = "xsmall";
 			constructionsRow.innerHTML = '<i class="tr-traffic-cone"></i> ' + constructions[i].name + " - " + constructions[i].construction.startDate + " t/m " + constructions[i].construction.stopDate;
@@ -142,6 +142,7 @@ Module.register('MMM-MyTraffic', {
 			constructionsRow.className = "xsmall";
 			constructionsRow.innerHTML = constructions[i].construction.description;
 			table.appendChild(constructionsRow);
+		   }
 		}
 		
 		return table;
