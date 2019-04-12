@@ -14,6 +14,7 @@ Module.register('MMM-MyTraffic', {
 		showConstructions: true,		// Show Constructions
 		showRadars: true,			// Show Radar controles
 		sortBy: null,				// Way of sorting the information - FUTURE OPTION
+		preferredRoads: null,			// Display only preferred roads - FUTURE OPTION
 		maxWidth: "500px",			// Max width wrapper
 		animationSpeed: 1000, 			// fade in and out speed
 		initialLoadDelay: 1000,
@@ -104,8 +105,7 @@ Module.register('MMM-MyTraffic', {
 			jamsNameRow.className = "xsmall";
 			if (typeof jams[i].jam.startDate !== 'undefined') {
 				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
-				} else
-				{
+				} else {
 				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
 				}
 			table.appendChild(jamsNameRow);		   
@@ -116,13 +116,7 @@ Module.register('MMM-MyTraffic', {
 			table.appendChild(jamsReasonRow);
 		   }
 		}
-		
-/*		if (this.config.showJams != false) {
-			var spacer = document.createElement("tr");
-			spacer.innerHTML = "&nbsp;";
-			table.appendChild(spacer);
-		}
-*/		
+				
 		//Display Trafic Camera (Radar) information
 		if (this.config.showRadars != false) {		
 		   for (var i = 0; i < radars.length; i++) {			
@@ -132,13 +126,7 @@ Module.register('MMM-MyTraffic', {
 			table.appendChild(radarsRow);
 		   }
 		}
-		
-/*		if (this.config.showRadars != false) {
-			var spacer = document.createElement("tr");
-			spacer.innerHTML = "&nbsp;";
-			table.appendChild(spacer);
-		}
-*/		
+				
 		//Display Traffic Constructions information
 		if (this.config.showConstructions != false) {		
 		   for (var i = 0; i < radars.length; i++) {			
