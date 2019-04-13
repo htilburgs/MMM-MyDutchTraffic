@@ -120,8 +120,8 @@ Module.register('MMM-MyTraffic', {
 				
 		//Display Trafic Camera (Radar) information
 		if (this.config.showRadars != false) {		
-//		   for (var i = 0; i < radars.length; i++) {	
-		   for (var radar of radars) {	   
+		   for (var i = 0; i < radars.length; i++) {	
+//		   for (var radar of radars) {	   
 			var radarsRow = document.createElement("tr");
 			radarsRow.className = "xsmall";
 			radarsRow.innerHTML = '<i class="tr-traffic-camera"></i> ' + radars[i].name + " - " + radars[i].radar.description;
