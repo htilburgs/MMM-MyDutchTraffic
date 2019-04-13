@@ -88,7 +88,7 @@ Module.register('MMM-MyTraffic', {
   			}
 		}	
 
-/*		// For development reason
+		// For development reason
 		for (var i = 0; i < jams.length; i++) {
    		 console.log(jams[i]);
 		}
@@ -98,7 +98,7 @@ Module.register('MMM-MyTraffic', {
 		for (var i = 0; i < radars.length; i++) {
    		 console.log(radars[i]);
 		}
-*/		
+		
 		// Display Trafic Jam information
 		if (this.config.showJams != false) {
 		   for (var i = 0; i < jams.length; i++) {		
