@@ -103,7 +103,7 @@ Module.register('MMM-MyTraffic', {
 		   for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
 			jamsNameRow.className = "xsmall";
-			if (jams[i].jam.startDate != 'undefined' && jams[i].jam.distance != 'NaN') {
+/*			if (jams[i].jam.startDate != 'undefined' && jams[i].jam.distance != 'NaN') {
 			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			} else
 			if (jams[i].jam.startDate == 'undefined' && jams[i].jam.distance != 'NaN') {
@@ -115,13 +115,11 @@ Module.register('MMM-MyTraffic', {
 			if (jams[i].jam.startDate == 'undefined' && jams[i].jam.distance == 'NaN') {
 			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
 			}
-/*			if (typeof jams[i].jam.startDate !== 'undefined') {
+*/
+			if (typeof jams[i].jam.startDate !== 'undefined') {
 				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
-				} else {
-				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
-				}
-			jams.NameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name = " - " + jams[i].jam.startDate !== 'undefinded' ? jams[i].jam.startDate + " - " + jams[i].jam.distance !== 'Na' ? (jams[i].jam.distance/1000) + "KM";
-*/			table.appendChild(jamsNameRow);		   			
+			}
+			table.appendChild(jamsNameRow);		   			
 					
 			var jamsReasonRow = document.createElement("tr");
 			jamsReasonRow.className = "xsmall";
