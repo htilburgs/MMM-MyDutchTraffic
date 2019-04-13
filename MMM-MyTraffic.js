@@ -118,6 +118,8 @@ Module.register('MMM-MyTraffic', {
 */
 			if (typeof jams[i].jam.startDate !== 'undefined') {
 				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+			}else{
+				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
 			}
 			table.appendChild(jamsNameRow);		   			
 					
