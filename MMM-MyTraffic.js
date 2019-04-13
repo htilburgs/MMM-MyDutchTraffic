@@ -103,16 +103,16 @@ Module.register('MMM-MyTraffic', {
 		   for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
 			jamsNameRow.className = "xsmall";
-			if (jams[i].jam.startDate !== 'undefined' && jams[i].jam.distance !== 'Na') {
+			if (jams[i].jam.startDate !== 'undefined' && jams[i].jam.distance !== 'NaN') {
 			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			}
-			if (jams[i].jam.startDate == 'undefined' && jams[i].jam.distance !== 'Na') {
+			if (jams[i].jam.startDate == 'undefined' && jams[i].jam.distance !== 'NaN') {
 			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - "  + (jams[i].jam.distance/1000) + "KM";
 			}
-			if (jams[i].jam.startDate !== 'undefined' && jams[i].jam.distance == 'Na') {
+			if (jams[i].jam.startDate !== 'undefined' && jams[i].jam.distance == 'NaN') {
 			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate;
 			}
-			if (jams[i].jam.startDate == 'undefined' && jams[i].jam.distance == 'Na') {
+			if (jams[i].jam.startDate == 'undefined' && jams[i].jam.distance == 'NaN') {
 			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
 			}
 /*			if (typeof jams[i].jam.startDate !== 'undefined') {
