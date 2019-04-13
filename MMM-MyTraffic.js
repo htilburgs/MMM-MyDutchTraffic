@@ -69,6 +69,7 @@ Module.register('MMM-MyTraffic', {
         	}	
 		
 		var MTR = this.MTR;
+		var ROADS = this.prefferedRoads;
 		
 		// Create lists of jams, construction-zones and radar positions, with their road name	
 		var jams = []
@@ -87,7 +88,7 @@ Module.register('MMM-MyTraffic', {
   			}
 		}	
 
-		// For development reason
+/*		// For development reason
 		for (var i = 0; i < jams.length; i++) {
    		 console.log(jams[i]);
 		}
@@ -97,28 +98,15 @@ Module.register('MMM-MyTraffic', {
 		for (var i = 0; i < radars.length; i++) {
    		 console.log(radars[i]);
 		}
-		
+*/		
 		// Display Trafic Jam information
 		if (this.config.showJams != false) {
 		   for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
-			jamsNameRow.className = "small";
-/*			if (jams[i].jam.startDate != 'undefined' && jams[i].jam.distance != 'NaN') {
-			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
-			} else
-			if (jams[i].jam.startDate == 'undefined' && jams[i].jam.distance != 'NaN') {
-			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - "  + (jams[i].jam.distance/1000) + "KM";
-			} else
-			if (jams[i].jam.startDate != 'undefined' && jams[i].jam.distance == 'NaN') {
-			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate;
-			} else
-			if (jams[i].jam.startDate == 'undefined' && jams[i].jam.distance == 'NaN') {
-			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
-			}
-*/
+			jamsNameRow.className = "xsmall";
 			if (typeof jams[i].jam.startDate !== 'undefined' && jams[i].jam.distance !== 'NaN') {
 				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
-			}else{
+			} else {
 				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
 			}
 			table.appendChild(jamsNameRow);		   			
