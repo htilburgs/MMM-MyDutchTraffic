@@ -103,13 +103,16 @@ Module.register('MMM-MyTraffic', {
 		   for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
 			jamsNameRow.className = "xsmall";
-			if (typeof jams[i].jam.startDate !== 'undefined') {
+/*			if (typeof jams[i].jam.startDate !== 'undefined') {
 				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 				} else {
 				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
 				}
+*/			jams.NameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name = " - " + jams[i].jam.startDate !== 'undefinded' ? jams[i].jam.startDate + " - " + jams[i].jam.distance !== 'Na' ? (jams[i].jam.distance/1000) + "KM";
 			table.appendChild(jamsNameRow);		   
-			   
+
+//this.config.show24Clock == false ? this.convert24Time(MPT.Imsak) : MPT.Imsak;					
+					
 			var jamsReasonRow = document.createElement("tr");
 			jamsReasonRow.className = "xsmall";
 			jamsReasonRow.innerHTML = jams[i].jam.description;
