@@ -102,7 +102,7 @@ Module.register('MMM-MyTraffic', {
 		if (this.config.showJams != false) {
 		   for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
-			jamsNameRow.className = "xsmall";
+			jamsNameRow.className = "small";
 /*			if (jams[i].jam.startDate != 'undefined' && jams[i].jam.distance != 'NaN') {
 			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			} else
@@ -116,7 +116,7 @@ Module.register('MMM-MyTraffic', {
 			    jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
 			}
 */
-			if (typeof jams[i].jam.startDate !== 'undefined') {
+			if (typeof jams[i].jam.startDate !== 'undefined' && jams[i].jam.distance !== 'NaN') {
 				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			}else{
 				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
