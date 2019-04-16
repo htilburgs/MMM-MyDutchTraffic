@@ -18,7 +18,7 @@ Module.register('MMM-TT', {
 		animationSpeed: 1000, 			// fade in and out speed
 		initialLoadDelay: 1000,
 		retryDelay: 2500,
-		updateInterval: 10 * 60 * 1000		// every 10 minutes
+		updateInterval: 60 * 1000		// every 1 minute
 	},
 
 			
