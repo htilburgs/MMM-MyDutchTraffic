@@ -121,7 +121,8 @@ Module.register('MMM-MyTraffic', {
 		
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
-		   for (var i = 0; i < jams.length; i++) {	
+//		   for (var i = 0; i < jams.length; i++) {	
+		   for (var i = 0; i < 5; i++) {
 			var jamsInfoRow = document.createElement("tr");
 			var jamsIconCell = document.createElement("td");
 			jamsIconCell.rowSpan = 2;
