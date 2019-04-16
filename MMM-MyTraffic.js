@@ -86,7 +86,7 @@ Module.register('MMM-MyTraffic', {
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
 //		   for (var i = 0; i < jams.length; i++) {	
-		   for (var i = 0; i < 2; i++ {			   
+		   for (var i = 0; i < 2; i++) {			   
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-jam', 'small-icon');
@@ -111,7 +111,7 @@ Module.register('MMM-MyTraffic', {
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
 //		   for (var i = 0; i < radars.length; i++) {	
-		   for (var i = 0; i < 2; i++ {			
+		   for (var i = 0; i < 2; i++) {			
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-camera', 'small-icon');
@@ -136,7 +136,7 @@ Module.register('MMM-MyTraffic', {
 		//Display Traffic Constructions information
 		if (this.config.showConstructions != false) {		
 //		   for (var i = 0; i < radars.length; i++) {	
-		   for (var i = 0; i < 2; i++ {
+		   for (var i = 0; i < 2; i++) {
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-construction', 'small-icon');
