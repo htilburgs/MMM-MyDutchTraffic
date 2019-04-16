@@ -142,7 +142,7 @@ Module.register('MMM-MyTraffic', {
 		   for (var i = 0; i < radars.length; i++) {	
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
-			icon.classList.add('trafficicon-cone', 'small-icon');
+			icon.classList.add('trafficicon-construction', 'small-icon');
 			var event = document.createElement("div");
 			event.className = "description xsmall";
 			var information = document.createElement("div");
