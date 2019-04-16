@@ -37,3 +37,36 @@
   color: orange;
 }
 
+.tr-traffic-camera {
+  content: "\e900";
+  color: red;
+}
+.tr-traffic-jam {
+  content: "\e901";
+  color: yellow;
+}
+.tr-traffic-cone {
+  content: "\e902";
+  color: orange;
+}
+
+.trafficicon-jam {
+	background-image: url(icons/trafficjam.png);
+	background-repeat: no-repeat;
+	display: block;
+  color: yellow;
+}
+
+.trafficicon-camera {
+	background-image: url(icons/camera.png);
+	background-repeat: no-repeat;
+	display: block;
+  color: red;
+}
+
+.trafficicon-construction {
+	background-image: url(icons/cone.png);
+	background-repeat: no-repeat;
+	display: block;
+  color: orange;
+}
