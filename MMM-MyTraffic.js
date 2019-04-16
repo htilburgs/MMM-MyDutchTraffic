@@ -136,13 +136,13 @@ Module.register('MMM-MyTraffic', {
 			duration.className.add = "duration xsmall";
 			duration.innerHTML = jams[i].jam.description;
 			var newLine = document.createElement("br");
-			newLine.className = "xsmall";
+			newLine.className = "newline xsmall";
 			description.appendChild(headline);
 			description.appendChild(duration);
 			warnWrapper.appendChild(icon);
 			warnWrapper.appendChild(description);
 			wrapper.appendChild(warnWrapper);
-			wrapper.appendChild(newLine);
+//			wrapper.appendChild(newLine);
 			   
 		   }
 		}
