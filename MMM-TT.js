@@ -84,15 +84,19 @@ Module.register('MMM-TT', {
 		
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
-		   for (var i = 0; i < jams.length; i++) {	
 			
-			if (this.config.preferredRoads !== "All") {
-				var jamFilter = jams[i].name.filter(function (el) {
-   				 return (el.jams[i].name === this.config.preferredRoads);
-				});
-			} else {
-			var jamFilter = jams;
-				
+//		for (var jam of jams) {	
+		for (var i = 0; i < jams.length; i++) {		
+		if (this.config.preferredRoads !== "All") {
+        		// if the jam name doesn't match
+			if(jam.name !== this.config.preferredRoads){
+           		// iterate the loop again
+           		continue
+        		}
+			} 
+			     // have matching jam (or all) here
+			}
+			
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-jam', 'small-icon');
@@ -101,13 +105,13 @@ Module.register('MMM-TT', {
 			var information = document.createElement("div");
 			information.className = "information bold"
 			if (jams[i].jam.startDate !== "undefined") {
-				information.innerHTML = jamFilter[i].name + " - " + jamFilter[i].jam.startDate + " - " + (jamFilter[i].jam.distance/1000) + "KM";
+				information.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 				} else {
-				information.innerHTML = jamFilter[i].name;
+				information.innerHTML = jams[i].name;
 				}
 			var description = document.createElement("div");
 			description.className.add = "duration xsmall";
-			description.innerHTML = jamFilter[i].jam.description;
+			description.innerHTML = jams[i].jam.description;
 			var horLine = document.createElement("hr");
 			event.appendChild(information);
 			event.appendChild(description);
@@ -116,7 +120,7 @@ Module.register('MMM-TT', {
 			wrapper.appendChild(warnWrapper);
 			wrapper.appendChild(horLine); 
 		   }
-		}
+		}}
 			   
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
