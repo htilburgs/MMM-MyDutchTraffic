@@ -6,7 +6,7 @@
 	display: block;
 	width: 256px;
 	height: 256px;
-  	color: yellow;
+  	background-color: yellow;
 }
 
 .trafficicon-camera {
@@ -24,7 +24,7 @@
 	display: block;
 	width: 256px;
 	height: 256px;
-  	color: orange;
+  	background-color: orange;
 }
 
 .small-icon {
@@ -44,7 +44,6 @@
 	padding-top: 3px;
 	color: #fff;
 	width: auto;
-	font-size: 15px;
 	line-height: 20px;
 	text-align: left;
 }
