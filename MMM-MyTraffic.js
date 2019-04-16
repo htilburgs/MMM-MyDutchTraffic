@@ -11,8 +11,8 @@ Module.register('MMM-MyTraffic', {
 	// Default values
 	defaults: {
 		showJams: false,			// Show Traffic jams
-		showConstructions: false,		// Show Constructions
-		showRadars: true,			// Show Radar controles
+		showConstructions: true,		// Show Constructions
+		showRadars: false,			// Show Radar controles
 		sortBy: null,				// Way of sorting the information - FUTURE OPTION
 		preferredRoads: null,			// Display only preferred roads - FUTURE OPTION
 		maxWidth: "500px",			// Max width wrapper
