@@ -1,58 +1,4 @@
-@font-face {
-  font-family: 'traffic';
-  src:  url('fonts/traffic.eot?yxhtz');
-  src:  url('fonts/traffic.eot?yxhtz#iefix') format('embedded-opentype'),
-    url('fonts/traffic.ttf?yxhtz') format('truetype'),
-    url('fonts/traffic.woff?yxhtz') format('woff'),
-    url('fonts/traffic.svg?yxhtz#traffic') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class^="tr-"], [class*=" tr-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'traffic' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.tr-traffic-camera:before {
-  content: "\e900";
-  color: red;
-}
-.tr-traffic-jam:before {
-  content: "\e901";
-  color: yellow;
-  display: block;
-}
-.tr-traffic-cone:before {
-  content: "\e902";
-  color: orange;
-}
-
 .wrapper {}
-
-.tr-traffic-camera {
-  content: "\e900";
-  color: red;
-}
-.tr-traffic-jam {
-  content: "\e901";
-  color: yellow;
-  display: block;
-}
-.tr-traffic-cone {
-  content: "\e902";
-  color: orange;
-}
 
 .trafficicon-jam {
 	background-image: url(icons/trafficjam.png);
@@ -78,7 +24,7 @@
 	display: block;
 	width: 256px;
 	height: 256px;
-  color: orange;
+  	color: orange;
 }
 
 .small-icon {
@@ -102,18 +48,10 @@
 	line-height: 20px;
 	text-align: left;
 }
-.line {
-	width: 300px;
-}
-hr {
-	width: 300px;
-}
-.duration {
-	color: #999;
-}
-br {
-	height: 0px;
-	display: block;
-   	margin: 10px 0;
-}
 
+hr {
+	height: 1px;
+    	color: dimgray;
+    	background-color: dimgray;
+    	border: none;
+}
