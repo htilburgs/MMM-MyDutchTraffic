@@ -99,7 +99,7 @@ Module.register('MMM-MyTraffic', {
    		 console.log(radars[i]);
 		}
 		
-		// Display Trafic Jam information
+/*		// Display Traffic Jam information
 		if (this.config.showJams != false) {
 		   for (var i = 0; i < jams.length; i++) {		
 			var jamsNameRow = document.createElement("tr");
@@ -117,8 +117,32 @@ Module.register('MMM-MyTraffic', {
 			table.appendChild(jamsReasonRow);
 		   }
 		}
-				
-		//Display Trafic Camera (Radar) information
+*/
+		
+		//Display Traffic Jam information
+		if (this.config.showJams != false) {
+		   for (var i = 0; i < jams.length; i++) {	
+			var jamsInfoRow = document.createElement("tr");
+			var jamsIconCell = document.createElement("td rowspan=2");
+			var jamsInfoCell = document.createElement("td");
+			jamsInfoCell.className = "xsmall";
+			var jamsDescRow = document.createElement("tr");
+			var jamsDescCell = document.createElement("td");
+			jamsDescCell.className = "xsmall";
+			   
+			   jamsIconCell.innerHTML = '<i class="tr-traffic-Jam"></i>
+			   jamsInfoRow.appendChild(jamsIconCell);
+			   jamsInfoCell.innerHTML =  jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+			   jamsInfoRow.appendChild(jamsInfoCell);
+			   table.appendChild(jamsInfoRow);
+			   jamsDescCell.innerHTML = jams[i].jam.description;
+			   jamsDescRow.appendChild(jamsDescCell)
+			   table.appendChild(jamsDescRow);
+		   }
+		}
+			   
+			   
+		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
 		   for (var i = 0; i < radars.length; i++) {	
 			var radarsRow = document.createElement("tr");
