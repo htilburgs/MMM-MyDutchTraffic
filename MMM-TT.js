@@ -159,10 +159,14 @@ Module.register('MMM-TT', {
     		this.jams=[]
     		this.constructions=[]
     		this.radars=[]
+			
+		// Convert preferredRoads Array to upper case
+		var pRoads = this.config.preferredRoads;
+		this.pRoads = pRoads.map(function(x){ return x.toUpperCase() })
     		
 		for (var road of this.MTR.roadEntries){
-      			Log.log(" typeof="+typeof this.config.preferredRoads )
-      			if(this.config.preferredRoads.includes(road.road) || this.config.preferredRoads.includes("ALL")) 
+      			Log.log(" typeof="+typeof this.pRoads)
+      			if(this.pRoads.includes(road.road) || this.pRoads.includes("ALL")) 
       			{
 			
         		for (var j1 of road.events.trafficJams){  
