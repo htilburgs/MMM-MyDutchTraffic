@@ -82,6 +82,11 @@ Module.register('MMM-TT', {
   			}
 		}	
 		
+		// FOR TESTING PURPOSES
+		for (var jam of jams) {
+			console.log(jams);
+		}
+	
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
 			
