@@ -13,7 +13,7 @@ Module.register('MMM-TT', {
 		showJams: true,						// Show Traffic jams
 		showConstructions: true,			// Show Constructions
 		showRadars: true,					// Show Radar controles
-		preferredRoads: null,	// Display only preferred roads - All is everything, other "A1",A2",..
+		preferredRoads: ['A1', 'A2'],				// Display only preferred roads - All is everything, other "A1",A2",..
 		maxWidth: "500px",					// Max width wrapper
 		animationSpeed: 1000, 				// fade in and out speed
 		initialLoadDelay: 1000,
@@ -80,11 +80,19 @@ Module.register('MMM-TT', {
   			for (var radar of road.events.radars){
     			radars.push({name: road.road,radar})
   			}
-		}	
+		}
 	
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
 		   for (var i = 0; i < jams.length; i++) {	
+			   
+			   for (var jam of jams) {	
+			           if(jam.name !== this.config.preferredRoads){
+			              // iterate the loop again
+			              continue
+			           }
+			         } 
+			   
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-jam', 'small-icon');
@@ -108,7 +116,7 @@ Module.register('MMM-TT', {
 			wrapper.appendChild(warnWrapper);
 			wrapper.appendChild(horLine); 
 		   }
-		}
+	   	}
 			   
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
