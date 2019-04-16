@@ -120,7 +120,7 @@ Module.register('MMM-MyTraffic', {
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.setAttribute('style', 'background-color: yellow');
-			icon.classList.add('trafficicon-radar', 'small-icon');
+			icon.classList.add('trafficicon-camera', 'small-icon');
 			var event = document.createElement("div");
 			event.className = "description xsmall";
 			var information = document.createElement("div");
