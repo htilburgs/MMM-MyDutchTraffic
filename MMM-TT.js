@@ -13,7 +13,7 @@ Module.register('MMM-TT', {
 		showJams: true,						// Show Traffic jams
 		showConstructions: true,			// Show Constructions
 		showRadars: true,					// Show Radar controles
-		preferredRoads: ['A1', 'A2'],				// Display only preferred roads - All is everything, other "A1",A2",..
+		preferredRoads: ['ALL'],				// Display only preferred roads - All is everything, other "A1",A2",..
 		maxWidth: "500px",					// Max width wrapper
 		animationSpeed: 1000, 				// fade in and out speed
 		initialLoadDelay: 1000,
