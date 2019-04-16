@@ -94,7 +94,7 @@ Module.register('MMM-MyTraffic', {
 			event.className = "description xsmall";
 			var information = document.createElement("div");
 			information.className = "information bold"
-			if (jams[i].jam.startDate != 'undefined') {
+			if (jams[i].jam.startDate !== "undefined") {
 				information.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 				} else {
 				information.innerHTML = jams[i].name;
