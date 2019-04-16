@@ -84,15 +84,15 @@ Module.register('MMM-TT', {
 	
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
-	   for (var j of this.jams) {	
+	   	for (var j of this.jams) {	
   			   
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-jam', 'small-icon');
 			var event = document.createElement("div");
-			event.className = "description xsmall";
+			event.className = "event xsmall";
 			var information = document.createElement("div");
-			information.className = "description bold"
+			information.className = "bold"
 			if (typeof j.jam.startDate !== "undefined") {
 				information.innerHTML = j.name + " - " + j.jam.startDate + " - " + (j.jam.distance/1000) + "KM";
 				} else {
@@ -118,9 +118,9 @@ Module.register('MMM-TT', {
         var icon = document.createElement("div");
         icon.classList.add('trafficicon-camera', 'small-icon');
         var event = document.createElement("div");
-        event.className = "description xsmall";
+        event.className = "event xsmall";
         var information = document.createElement("div");
-        information.className = "description bold"
+        information.className = "bold"
         information.innerHTML = r.radar.location;
         var description = document.createElement("div");
         description.className.add = "description xsmall";
@@ -142,9 +142,9 @@ Module.register('MMM-TT', {
         var icon = document.createElement("div");
         icon.classList.add('trafficicon-construction', 'small-icon');
         var event = document.createElement("div");
-        event.className = "description xsmall";
+        event.className = "event xsmall";
         var information = document.createElement("div");
-        information.className = "description bold"
+        information.className = "bold"
         information.innerHTML = c.name + " - " + c.construction.startDate + " t/m " + c.construction.stopDate;
         var description = document.createElement("div");
         description.className.add = "description xsmall";
