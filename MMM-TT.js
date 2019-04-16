@@ -5,7 +5,7 @@ Copyright (C) 2019 - H. Tilburgs
 MIT License
 //-------------------------------------------
 */
-mself=null;
+
 Module.register('MMM-TT', {
 
 	// Default values
@@ -47,14 +47,13 @@ Module.register('MMM-TT', {
 	},
 	
 	start: function () {
-   		mself=this;
 		Log.info("Starting module: " + this.name);
 		requiresVersion: "2.1.0",	
 			
 		// Set locales
 		this.url = "https://www.anwb.nl/feeds/gethf"
-		this.MTR = [];			// <-- Create empty MyTraffic array
-		this.scheduleUpdate();       	// <-- When the module updates (see below)
+		this.MTR = [];				// <-- Create empty MyTraffic array
+		this.scheduleUpdate();     	// <-- When the module updates (see below)
 	},
 
 	getDom: function () {
@@ -156,33 +155,33 @@ Module.register('MMM-TT', {
 	
 	// this processes your data
 	processTRAFFIC: function (data) { 
-		mself.MTR = data; 
-    		mself.jams=[]
-    		mself.constructions=[]
-    		mself.radars=[]
+			this.MTR = data; 
+    		this.jams=[]
+    		this.constructions=[]
+    		this.radars=[]
     		
-		for (var road of mself.MTR.roadEntries){
-      			Log.log(" typeof="+typeof mself.config.preferredRoads )
-      			if(mself.config.preferredRoads.includes(road.road) || mself.config.preferredRoads.includes("ALL")) 
+		for (var road of this.MTR.roadEntries){
+      			Log.log(" typeof="+typeof this.config.preferredRoads )
+      			if(this.config.preferredRoads.includes(road.road) || this.config.preferredRoads.includes("ALL")) 
       			{
 			
         		for (var j1 of road.events.trafficJams){  
             		Log.log("pushing entry for road="+ road.road)        
-            		mself.jams.push({name: road.road, jam:j1})
+            		this.jams.push({name: road.road, jam:j1})
           		}
 			
         		for (var construction of road.events.roadWorks){
-          		mself.constructions.push({name: road.road,construction:construction})
+          		this.constructions.push({name: road.road,construction:construction})
         		}
 			
         		for (var radar of road.events.radars){
-          		mself.radars.push({name: road.road,radar:radar})
+          		this.radars.push({name: road.road,radar:radar})
         		}
 		}
 	}
 		
-//		console.log(mself.MTR); // uncomment to see if you're getting data (in dev console)
-		mself.loaded = true;
+//		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
+		this.loaded = true;
 	},
 	
 	// this tells module when to update
@@ -203,7 +202,7 @@ Module.register('MMM-TT', {
 	socketNotificationReceived: function(notification, payload) { 
 		if (notification === "MYTRAFFIC_RESULT") {
 		this.processTRAFFIC(payload);
-        	mself.updateDom(100);
+        	this.updateDom(100);
 		}
 		//this.updateDom(this.config.initialLoadDelay);
 	},
