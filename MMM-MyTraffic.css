@@ -37,6 +37,8 @@
   color: orange;
 }
 
+.wrapper {}
+
 .tr-traffic-camera {
   content: "\e900";
   color: red;
