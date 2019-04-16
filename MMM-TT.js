@@ -65,7 +65,7 @@ Module.register('MMM-TT', {
 		
 		var MTR = this.MTR;
 		var ROADS = this.preferredRoads;
-		console.log (ROADS);
+		console.log (this.preferredRoads);
 		
 		// Create lists of jams, construction-zones and radar positions, with their road name	
 		var jams = []
