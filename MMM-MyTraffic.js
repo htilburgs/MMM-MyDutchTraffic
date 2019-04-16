@@ -127,7 +127,7 @@ Module.register('MMM-MyTraffic', {
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.setAttribute('style', 'background-color: yellow');
-			icon.classList.add('trafficicon-jam', 'small-icon');
+			icon.classList.add('tr-traffic-jam', 'small-icon');
 			var description = document.createElement("div");
 			description.className = "description xsmall";
 			var headline = document.createElement("div");
@@ -136,6 +136,7 @@ Module.register('MMM-MyTraffic', {
 			duration.className.add = "duration xsmall";
 			duration.innerHTML = jams[i].jam.description;
 			var newLine = document.createElement("br");
+			newLine.className = "xsmall";
 			description.appendChild(headline);
 			description.appendChild(duration);
 			warnWrapper.appendChild(icon);
