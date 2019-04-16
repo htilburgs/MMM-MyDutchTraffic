@@ -127,13 +127,13 @@ Module.register('MMM-MyTraffic', {
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.setAttribute('style', 'background-color: yellow');
-			icon.classList.add('trafficicon-jam');
+			icon.classList.add('trafficicon-jam', 'small-icon');
 			var description = document.createElement("div");
-			description.className = 'description';
+			description.className.add = ('description', 'small');
 			var headline = document.createElement("div");
 			headline.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			var duration = document.createElement("div");
-			duration.className = 'duration';
+			duration.className.add = ('duration', 'small');
 			duration.innerHTML = jams[i].jam.description;
 			var newLine = document.createElement("br");
 			description.appendChild(headline);
