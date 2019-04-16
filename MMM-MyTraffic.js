@@ -130,10 +130,10 @@ Module.register('MMM-MyTraffic', {
 			var description = document.createElement("div");
 			description.className = 'description';
 			var headline = document.createElement("div");
-			headline.innerHTML = jams[i].name;
+			headline.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			var duration = document.createElement("div");
 			duration.className = 'duration';
-			duration.innerHTML = jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+			duration.innerHTML = jams[i].jam.description;
 			var newLine = document.createElement("br");
 			description.appendChild(headline);
 			description.appendChild(duration);
