@@ -118,10 +118,8 @@ Module.register('MMM-TT', {
 			warnWrapper.appendChild(icon);
 			warnWrapper.appendChild(event);
 			wrapper.appendChild(warnWrapper);
-			wrapper.appendChild(horLine); 
-		   	}
-		    )
-		}}
+			wrapper.appendChild(horLine);
+		}
 			   
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
