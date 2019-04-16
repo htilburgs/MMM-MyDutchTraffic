@@ -135,7 +135,7 @@ Module.register('MMM-MyTraffic', {
 			jamsDescCell.className = "xsmall";  
 			   
 			   //Fill table with information
-			   jamsIconCell.innerHTML = '<i class="tr-traffic-Jam"></i>';
+			   jamsIconCell.innerHTML = '<i class="tr-traffic-Jam"></i>' + ".";
 			   jamsInfoCell.innerHTML =  jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			   
 			   jamsInfoRow.appendChild(jamsIconCell);
