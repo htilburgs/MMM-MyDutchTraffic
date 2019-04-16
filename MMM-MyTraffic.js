@@ -124,27 +124,23 @@ Module.register('MMM-MyTraffic', {
 //		   for (var i = 0; i < jams.length; i++) {	
 		   for (var i = 0; i < 5; i++) {
 			 
-			// Table definition   
-			var jamsInfoRow = document.createElement("div");
-			var jamsIconCell = document.createElement("div");
-			jamsIconCell.rowSpan = "2";
-			var jamsInfoCell = document.createElement("div");
-			jamsInfoCell.className = "xsmall";
-			var jamsDescRow = document.createElement("div");
-			var jamsDescCell = document.createElement("div");
-			jamsDescCell.className = "xsmall";  
+			var warnWrapper = document.createElement("div");
+			var icon = document.createElement("div");
+			var description = document.createElement("div");
+			description.className = 'description';
+			var headline = document.createElement("div");
+			headline.innerHTML = jams[i].name;
+			var duration = document.createElement("div");
+			duration.className = 'duration';
+			duration.innerHTML = jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+			var newLine = document.createElement("br");
+			description.appendChild(headline);
+			description.appendChild(duration);
+			warnWrapper.appendChild(icon);
+			warnWrapper.appendChild(description);
+			wrapper.appendChild(warnWrapper);
+			wrapper.appendChild(newLine);
 			   
-			   //Fill table with information
-			   jamsIconCell.innerHTML = '<i class="tr-traffic-Jam"></i>' + ".";
-			   jamsInfoCell.innerHTML =  jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
-			   
-			   jamsInfoRow.appendChild(jamsIconCell);
-			   jamsInfoRow.appendChild(jamsInfoCell);
-			   wrapper.appendChild(jamsInfoRow);
-			   
-			   jamsDescCell.innerHTML = jams[i].jam.description;
-			   jamsDescRow.appendChild(jamsDescCell)
-			   wrapper.appendChild(jamsDescRow);
 		   }
 		}
 			   
