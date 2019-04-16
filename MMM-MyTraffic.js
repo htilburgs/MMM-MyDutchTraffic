@@ -128,22 +128,21 @@ Module.register('MMM-MyTraffic', {
 			var icon = document.createElement("div");
 			icon.setAttribute('style', 'background-color: yellow');
 			icon.classList.add('trafficicon-jam', 'small-icon');
+			var event = document.createElement("div");
+			event.className = "description xsmall";
+			var information = document.createElement("div");
+			information.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			var description = document.createElement("div");
-			description.className = "description xsmall";
-			var headline = document.createElement("div");
-			headline.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
-			var duration = document.createElement("div");
-			duration.className.add = "duration xsmall";
-			duration.innerHTML = jams[i].jam.description;
+			description.className.add = "duration xsmall";
+			description.innerHTML = jams[i].jam.description;
 			var newLine = document.createElement("hr");
 			newLine.className = "newline xsmall";
-			description.appendChild(headline);
-			description.appendChild(duration);
+			event.appendChild(information);
+			event.appendChild(description);
 			warnWrapper.appendChild(icon);
-			warnWrapper.appendChild(description);
+			warnWrapper.appendChild(event);
 			wrapper.appendChild(warnWrapper);
-			wrapper.appendChild(newLine);
-			   
+			wrapper.appendChild(newLine); 
 		   }
 		}
 			   
