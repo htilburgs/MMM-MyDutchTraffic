@@ -70,3 +70,12 @@
 	display: block;
   color: orange;
 }
+
+.small-icon {
+	float: left;
+	position: absolute;
+	zoom: .18;
+	-moz-transform: scale(.18);
+	/* Firefox */
+	-moz-transform-origin: 0 0;
+}
