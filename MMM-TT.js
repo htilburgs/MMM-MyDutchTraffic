@@ -13,7 +13,7 @@ Module.register('MMM-TT', {
 		showJams: true,				// Show Traffic jams
 		showConstructions: true,		// Show Constructions
 		showRadars: true,			// Show Radar controles
-		preferredRoads: null,			// Display only preferred roads - FUTURE OPTION
+		preferredRoads: ("All"),		// Display only preferred roads
 		maxWidth: "500px",			// Max width wrapper
 		animationSpeed: 1000, 			// fade in and out speed
 		initialLoadDelay: 1000,
@@ -65,6 +65,7 @@ Module.register('MMM-TT', {
 		
 		var MTR = this.MTR;
 		var ROADS = this.preferredRoads;
+		console.log (ROADS);
 		
 		// Create lists of jams, construction-zones and radar positions, with their road name	
 		var jams = []
@@ -73,6 +74,7 @@ Module.register('MMM-TT', {
 
 		for (var road of MTR.roadEntries){
   			for (var jam of road.events.trafficJams){
+			if this.config.preferredRoads == "All"
 			jams.push({name: road.road, jam})
 			}
   			for (var construction of road.events.roadWorks){
@@ -85,7 +87,8 @@ Module.register('MMM-TT', {
 		
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
-		   for (var i = 0; i < jams.length; i++) {	
+//		   for (var i = 0; i < jams.length; i++) {	
+		   for (var i = 0; i < 2; i++) {
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-jam', 'small-icon');
@@ -113,7 +116,8 @@ Module.register('MMM-TT', {
 			   
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
-		   for (var i = 0; i < radars.length; i++) {	
+//		   for (var i = 0; i < radars.length; i++) {	
+		   for (var i = 0; i < 2; i++) {			   
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-camera', 'small-icon');
@@ -137,7 +141,8 @@ Module.register('MMM-TT', {
 				
 		//Display Traffic Constructions information
 		if (this.config.showConstructions != false) {		
-		   for (var i = 0; i < radars.length; i++) {	
+//		   for (var i = 0; i < radars.length; i++) {	
+		   for (var i = 0; i < 2; i++) {			
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-construction', 'small-icon');
