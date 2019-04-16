@@ -53,8 +53,8 @@ Module.register('MMM-MyTraffic', {
 	getDom: function () {
 		
 		// creating the table
-		var table = document.createElement("table");
-		table.style.maxWidth = this.config.maxWidth;
+//		var table = document.createElement("table");
+//		table.style.maxWidth = this.config.maxWidth;
 		
 		// creating the wrapper
 		var wrapper = document.createElement("div");
@@ -125,13 +125,13 @@ Module.register('MMM-MyTraffic', {
 		   for (var i = 0; i < 5; i++) {
 			 
 			// Table definition   
-			var jamsInfoRow = document.createElement("tr");
-			var jamsIconCell = document.createElement("td");
+			var jamsInfoRow = document.createElement("div");
+			var jamsIconCell = document.createElement("div");
 			jamsIconCell.rowSpan = "2";
-			var jamsInfoCell = document.createElement("td");
+			var jamsInfoCell = document.createElement("div");
 			jamsInfoCell.className = "xsmall";
-			var jamsDescRow = document.createElement("tr");
-			var jamsDescCell = document.createElement("td");
+			var jamsDescRow = document.createElement("div");
+			var jamsDescCell = document.createElement("div");
 			jamsDescCell.className = "xsmall";  
 			   
 			   //Fill table with information
@@ -140,15 +140,15 @@ Module.register('MMM-MyTraffic', {
 			   
 			   jamsInfoRow.appendChild(jamsIconCell);
 			   jamsInfoRow.appendChild(jamsInfoCell);
-			   table.appendChild(jamsInfoRow);
+			   wrapper.appendChild(jamsInfoRow);
 			   
 			   jamsDescCell.innerHTML = jams[i].jam.description;
 			   jamsDescRow.appendChild(jamsDescCell)
-			   table.appendChild(jamsDescRow);
+			   wrapper.appendChild(jamsDescRow);
 		   }
 		}
 			   
-			   
+/*			   
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
 		   for (var i = 0; i < radars.length; i++) {	
@@ -175,7 +175,8 @@ Module.register('MMM-MyTraffic', {
 		}
 		
 		return table;
-
+*/
+		return wrapper;
 	}, // <-- closes the getDom function from above
 		
 	
