@@ -89,3 +89,31 @@
 	/* Firefox */
 	-moz-transform-origin: 0 0;
 }
+
+.description {
+	font-family: Roboto;
+	margin-left: 10px;
+	color: white;
+	padding-left: 50px;
+	padding-top: 3px;
+	color: #fff;
+	width: auto;
+	font-size: 15px;
+	line-height: 20px;
+	text-align: left;
+}
+.line {
+	width: 300px;
+}
+hr {
+	width: 300px;
+}
+.duration {
+	color: #999;
+}
+br {
+	height: 0px;
+}
+.black {
+	background-color: black;
+}
