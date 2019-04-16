@@ -113,7 +113,7 @@ hr {
 }
 br {
 	height: 0px;
+	display: block;
+   	margin: 10px 0;
 }
-.black {
-	background-color: black;
-}
+
