@@ -10,8 +10,8 @@ Module.register('MMM-MyTraffic', {
 
 	// Default values
 	defaults: {
-		showJams: true,				// Show Trafficjams
-		showConstructions: true,		// Show Constructions
+		showJams: true,				// Show Traffic jams
+		showConstructions: false,		// Show Constructions
 		showRadars: true,			// Show Radar controles
 		sortBy: null,				// Way of sorting the information - FUTURE OPTION
 		preferredRoads: null,			// Display only preferred roads - FUTURE OPTION
