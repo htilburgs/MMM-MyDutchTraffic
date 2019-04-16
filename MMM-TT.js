@@ -21,7 +21,7 @@ Module.register('MMM-TT', {
 		updateInterval: 10 * 60 * 1000		// every 10 minutes
 	},
 
-	MTS: null,			
+	MTR: null,			
 	// Create lists of jams, construction-zones and radar positions, with their road name	
 	jams : [],
 	constructions : [],
@@ -108,8 +108,8 @@ Module.register('MMM-TT', {
 			warnWrapper.appendChild(event);
 			wrapper.appendChild(warnWrapper);
 			wrapper.appendChild(horLine); 
-		   }
-	   	}
+		  }
+	  }
 			   
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
@@ -169,22 +169,23 @@ Module.register('MMM-TT', {
     mself.constructions=[]
     mself.radars=[]
     for (var road of mself.MTR.roadEntries){
-  		for (var jam of road.events.trafficJams){
-        if(mself.config.preferredRoads === 'ALL' || road.road === mself.config.preferredRoads){   
-          Log.log("pushing entry for road="+ road.road)        
-          mself.jams.push({name: road.road, jam})			
+      if(mself.config.preferredRoads === 'ALL' || road.road === mself.config.preferredRoads ||
+      (typeof mself.config.preferredRoads ==='array' && mself.config.preferredRoads.includes(road.road))){ 
+        for (var j1 of road.events.trafficJams){  
+            Log.log("pushing entry for road="+ road.road)        
+            mself.jams.push({name: road.road, jam:j1})
+          }
+        for (var construction of road.events.roadWorks){
+          mself.constructions.push({name: road.road,construction:construction})
         }
-			}
-      for (var construction of road.events.roadWorks){
-        mself.constructions.push({name: road.road,construction})
-      }
-      for (var radar of road.events.radars){
-        mself.radars.push({name: road.road,radar})
+        for (var radar of road.events.radars){
+          mself.radars.push({name: road.road,radar:radar})
+        }
       }
 		}
 //		console.log(mself.MTR); // uncomment to see if you're getting data (in dev console)
 		mself.loaded = true;
-    mself.updateDom(100);
+
 	},
 	
 	// this tells module when to update
@@ -205,7 +206,8 @@ Module.register('MMM-TT', {
 	socketNotificationReceived: function(notification, payload) { 
 		if (notification === "MYTRAFFIC_RESULT") {
 		    this.processTRAFFIC(payload);
+        mself.updateDom(100);
 		}
-		this.updateDom(this.config.initialLoadDelay);
+		//this.updateDom(this.config.initialLoadDelay);
 	},
 });
