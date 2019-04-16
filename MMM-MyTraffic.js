@@ -134,14 +134,17 @@ Module.register('MMM-MyTraffic', {
 			headline.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			var duration = document.createElement("div");
 			duration.className.add = "duration xsmall";
-			duration.innerHTML = jams[i].jam.description + "<br />";
+			duration.innerHTML = jams[i].jam.description;
 			var newLine = document.createElement("br");
 			newLine.className = "newline xsmall";
+			var spacer = document.createElement("span");
+			spacer.innerHTML = "&nbsp;";
 			description.appendChild(headline);
 			description.appendChild(duration);
 			warnWrapper.appendChild(icon);
 			warnWrapper.appendChild(description);
 			wrapper.appendChild(warnWrapper);
+			wrapper.appendChild(spacer);
 //			wrapper.appendChild(newLine);
 			   
 		   }
