@@ -6,7 +6,7 @@ MIT License
 //-------------------------------------------
 */
 
-Module.register('MMM-MyTraffic', {
+Module.register('MMM-TT', {
 
 	// Default values
 	defaults: {
@@ -23,7 +23,7 @@ Module.register('MMM-MyTraffic', {
 		
 	// Define stylesheet
 	getStyles: function () {
-		return ["MMM-MyTraffic.css"];
+		return ["MMM-TT.css"];
 	},  
 
 	// Define required scripts.
