@@ -1,5 +1,3 @@
-# DEVELOPMENT - NOT FOR USE !!
-
 # MMM-MyTraffic
 MMM-Mytraffic is a MagicMirror module for dutch traffic information, using real-time information from the ANWB.
 
@@ -28,6 +26,7 @@ Add the module to your modules array in your config.js.
   	   showJams: true,			// Show Traffic jams
 	   showConstructions: true,		// Show Constructions
 	   showRadars: true,			// Show Speed Traps (Radar Controls)
+	   preferredRoads: ['ALL']		// Show All roads or show you're selection -> ['A1','A50','A67']
 	  }
 },
 ```
@@ -55,8 +54,15 @@ Here is the documentation of options for the modules configuration:
       <td><code>showRadars</code></td>
       <td>Show Speed traps (Radar Controls) on the Dutch highways<br /><br /><strong>True/False</strong><br />Default: <code>True</code></td>
     </tr>    
+    <tr>
+      <td><code>preferredRoads</code></td>
+      <td>Show ALL roads or show you're own selection<br /><br /><strong>Array</strong><br />Default: <code>['ALL']</code><br /><br /><strong>Example selection:</strong> preferredRoads: ['A1' , 'A2' , 'A50' , 'A67']</td>
+    </tr>    
 </tbody>
 </table>
+
+### Special thanks
+A special thanks to Sam Detweil for helping me out with some issues!
 
 ## License
 ### The MIT License (MIT)
