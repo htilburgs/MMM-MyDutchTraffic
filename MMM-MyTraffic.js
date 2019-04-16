@@ -127,7 +127,7 @@ Module.register('MMM-MyTraffic', {
 			// Table definition   
 			var jamsInfoRow = document.createElement("tr");
 			var jamsIconCell = document.createElement("td");
-			jamsIconCell.colSpan = "2";
+			jamsIconCell.rowSpan = "2";
 			var jamsInfoCell = document.createElement("td");
 			jamsInfoCell.className = "xsmall";
 			var jamsDescRow = document.createElement("tr");
