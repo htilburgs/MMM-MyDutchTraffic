@@ -126,6 +126,7 @@ Module.register('MMM-MyTraffic', {
 			 
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
+			icon.classList.add('tr-traffic-jam');
 			var description = document.createElement("div");
 			description.className = 'description';
 			var headline = document.createElement("div");
