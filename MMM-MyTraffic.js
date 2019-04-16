@@ -10,7 +10,7 @@ Module.register('MMM-MyTraffic', {
 
 	// Default values
 	defaults: {
-		showJams: false,				// Show Traffic jams
+		showJams: false,			// Show Traffic jams
 		showConstructions: false,		// Show Constructions
 		showRadars: true,			// Show Radar controles
 		sortBy: null,				// Way of sorting the information - FUTURE OPTION
@@ -119,7 +119,7 @@ Module.register('MMM-MyTraffic', {
 		   for (var i = 0; i < radars.length; i++) {	
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
-			icon.setAttribute('style', 'background-color: yellow');
+//			icon.setAttribute('style', 'background-color: yellow');
 			icon.classList.add('trafficicon-camera', 'small-icon');
 			var event = document.createElement("div");
 			event.className = "description xsmall";
