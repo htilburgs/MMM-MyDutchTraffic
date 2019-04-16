@@ -10,7 +10,7 @@ Module.register('MMM-MyTraffic', {
 
 	// Default values
 	defaults: {
-		showJams: true,				// Show Traffic jams
+		showJams: false,				// Show Traffic jams
 		showConstructions: false,		// Show Constructions
 		showRadars: true,			// Show Radar controles
 		sortBy: null,				// Way of sorting the information - FUTURE OPTION
@@ -87,37 +87,6 @@ Module.register('MMM-MyTraffic', {
     			radars.push({name: road.road,radar})
   			}
 		}	
-
-		// For development reason
-		for (var i = 0; i < jams.length; i++) {
-   		 console.log(jams[i]);
-		}
-		for (var i = 0; i < constructions.length; i++) {
-   		 console.log(constructions[i]);
-		}
-		for (var i = 0; i < radars.length; i++) {
-   		 console.log(radars[i]);
-		}
-		
-/*		// Display Traffic Jam information
-		if (this.config.showJams != false) {
-		   for (var i = 0; i < jams.length; i++) {		
-			var jamsNameRow = document.createElement("tr");
-			jamsNameRow.className = "xsmall";
-			if (typeof jams[i].jam.startDate !== 'undefined' && jams[i].jam.distance !== 'NaN') {
-				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
-			} else {
-				jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + jams[i].name;
-			}
-			table.appendChild(jamsNameRow);		   			
-					
-			var jamsReasonRow = document.createElement("tr");
-			jamsReasonRow.className = "xsmall";
-			jamsReasonRow.innerHTML = jams[i].jam.description;
-			table.appendChild(jamsReasonRow);
-		   }
-		}
-*/
 		
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
@@ -144,17 +113,32 @@ Module.register('MMM-MyTraffic', {
 		   }
 		}
 			   
-/*			   
+			   
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
 		   for (var i = 0; i < radars.length; i++) {	
-			var radarsRow = document.createElement("tr");
-			radarsRow.className = "xsmall";
-			radarsRow.innerHTML = '<i class="tr-traffic-camera"></i> ' + radars[i].name + " - " + radars[i].radar.description;
-			table.appendChild(radarsRow);
+			var warnWrapper = document.createElement("div");
+			var icon = document.createElement("div");
+			icon.setAttribute('style', 'background-color: yellow');
+			icon.classList.add('trafficicon-radar', 'small-icon');
+			var event = document.createElement("div");
+			event.className = "description xsmall";
+			var information = document.createElement("div");
+			information.className = "information bold"
+			information.innerHTML = radars[i].name;
+			var description = document.createElement("div");
+			description.className.add = "duration xsmall";
+			description.innerHTML = radars[i].radar.description;
+			var newLine = document.createElement("hr");
+			event.appendChild(information);
+			event.appendChild(description);
+			warnWrapper.appendChild(icon);
+			warnWrapper.appendChild(event);
+			wrapper.appendChild(warnWrapper);
+			wrapper.appendChild(newLine); 
 		   }
 		}
-				
+/*				
 		//Display Traffic Constructions information
 		if (this.config.showConstructions != false) {		
 		   for (var i = 0; i < radars.length; i++) {			
