@@ -13,7 +13,7 @@ Module.register('MMM-TT', {
 		showJams: true,				// Show Traffic jams
 		showConstructions: true,		// Show Constructions
 		showRadars: true,			// Show Radar controles
-		preferredRoads: ("All"),		// Display only preferred roads
+		preferredRoads: ["All"],		// Display only preferred roads - All is everything, other "A1",A2",..
 		maxWidth: "500px",			// Max width wrapper
 		animationSpeed: 1000, 			// fade in and out speed
 		initialLoadDelay: 1000,
@@ -64,8 +64,6 @@ Module.register('MMM-TT', {
         	}	
 		
 		var MTR = this.MTR;
-		var ROADS = this.preferredRoads;
-//		console.log (this.preferredRoads);
 		
 		// Create lists of jams, construction-zones and radar positions, with their road name	
 		var jams = []
@@ -74,8 +72,7 @@ Module.register('MMM-TT', {
 
 		for (var road of MTR.roadEntries){
   			for (var jam of road.events.trafficJams){
-//			if this.config.preferredRoads == "All"
-			jams.push({name: road.road, jam})
+			jams.push({name: road.road, jam})			
 			}
   			for (var construction of road.events.roadWorks){
     			constructions.push({name: road.road,construction})
@@ -87,8 +84,15 @@ Module.register('MMM-TT', {
 		
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
-//		   for (var i = 0; i < jams.length; i++) {	
-		   for (var i = 0; i < 2; i++) {
+		   for (var i = 0; i < jams.length; i++) {	
+			
+			if (this.config.preferredRoads !== "All") {
+				var jamFilter = jams[i].name.filter(function (el) {
+   				 return (el.jams[i].name === this.config.preferredRoads);
+				});
+			} else {
+			var jamFilter = jams;
+				
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-jam', 'small-icon');
@@ -97,13 +101,13 @@ Module.register('MMM-TT', {
 			var information = document.createElement("div");
 			information.className = "information bold"
 			if (jams[i].jam.startDate !== "undefined") {
-				information.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+				information.innerHTML = jamFilter[i].name + " - " + jamFilter[i].jam.startDate + " - " + (jamFilter[i].jam.distance/1000) + "KM";
 				} else {
-				information.innerHTML = jams[i].name;
+				information.innerHTML = jamFilter[i].name;
 				}
 			var description = document.createElement("div");
 			description.className.add = "duration xsmall";
-			description.innerHTML = jams[i].jam.description;
+			description.innerHTML = jamFilter[i].jam.description;
 			var horLine = document.createElement("hr");
 			event.appendChild(information);
 			event.appendChild(description);
@@ -116,8 +120,7 @@ Module.register('MMM-TT', {
 			   
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
-//		   for (var i = 0; i < radars.length; i++) {	
-		   for (var i = 0; i < 2; i++) {			   
+		   for (var i = 0; i < radars.length; i++) {	
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-camera', 'small-icon');
@@ -141,8 +144,7 @@ Module.register('MMM-TT', {
 				
 		//Display Traffic Constructions information
 		if (this.config.showConstructions != false) {		
-//		   for (var i = 0; i < radars.length; i++) {	
-		   for (var i = 0; i < 2; i++) {			
+		   for (var i = 0; i < radars.length; i++) {	
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-construction', 'small-icon');
