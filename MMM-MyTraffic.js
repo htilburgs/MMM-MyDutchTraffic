@@ -121,9 +121,7 @@ Module.register('MMM-MyTraffic', {
 		
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
-//		   for (var i = 0; i < jams.length; i++) {	
-		   for (var i = 0; i < 5; i++) {
-			 
+		   for (var i = 0; i < jams.length; i++) {	
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.setAttribute('style', 'background-color: yellow');
@@ -131,12 +129,12 @@ Module.register('MMM-MyTraffic', {
 			var event = document.createElement("div");
 			event.className = "description xsmall";
 			var information = document.createElement("div");
+			information.className = "information bold"
 			information.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			var description = document.createElement("div");
 			description.className.add = "duration xsmall";
 			description.innerHTML = jams[i].jam.description;
 			var newLine = document.createElement("hr");
-			newLine.className = "newline xsmall";
 			event.appendChild(information);
 			event.appendChild(description);
 			warnWrapper.appendChild(icon);
