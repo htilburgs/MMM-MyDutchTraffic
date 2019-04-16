@@ -89,7 +89,7 @@ Module.register('MMM-TT', {
 		for (var i = 0; i < jams.length; i++) {		
 		if (this.config.preferredRoads !== "All") {
         		// if the jam name doesn't match
-			if(jam.name !== this.config.preferredRoads){
+			if(jams.name !== this.config.preferredRoads){
            		// iterate the loop again
            		continue
         		}
