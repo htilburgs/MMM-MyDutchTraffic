@@ -169,8 +169,9 @@ Module.register('MMM-TT', {
     mself.constructions=[]
     mself.radars=[]
     for (var road of mself.MTR.roadEntries){
-      if(mself.config.preferredRoads === 'ALL' || road.road === mself.config.preferredRoads ||
-      (typeof mself.config.preferredRoads ==='array' && mself.config.preferredRoads.includes(road.road))){ 
+      Log.log(" typeof="+typeof mself.config.preferredRoads )
+      if(mself.config.preferredRoads.includes(road.road) || mself.config.preferredRoads.includes("ALL")) 
+      { 
         for (var j1 of road.events.trafficJams){  
             Log.log("pushing entry for road="+ road.road)        
             mself.jams.push({name: road.road, jam:j1})
