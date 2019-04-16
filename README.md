@@ -1,7 +1,7 @@
 # MMM-MyTraffic
 MMM-Mytraffic is a MagicMirror module for dutch traffic information, using real-time information from the ANWB.
 
-![Screenshot]()
+![Screenshot](screenshot.png)
 
 ## Installation
 Clone this repository in your modules folder, and install dependencies:
