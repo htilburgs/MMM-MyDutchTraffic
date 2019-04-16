@@ -10,10 +10,9 @@ Module.register('MMM-MyTraffic', {
 
 	// Default values
 	defaults: {
-		showJams: false,			// Show Traffic jams
+		showJams: true,				// Show Traffic jams
 		showConstructions: true,		// Show Constructions
-		showRadars: false,			// Show Radar controles
-		sortBy: null,				// Way of sorting the information - FUTURE OPTION
+		showRadars: true,			// Show Radar controles
 		preferredRoads: null,			// Display only preferred roads - FUTURE OPTION
 		maxWidth: "500px",			// Max width wrapper
 		animationSpeed: 1000, 			// fade in and out speed
@@ -46,15 +45,11 @@ Module.register('MMM-MyTraffic', {
 			
 		// Set locales
 		this.url = "https://www.anwb.nl/feeds/gethf"
-		this.MTR = [];			// <-- Create empty MTR array
+		this.MTR = [];			// <-- Create empty MyTraffic array
 		this.scheduleUpdate();       	// <-- When the module updates (see below)
 	},
 
 	getDom: function () {
-		
-		// creating the table
-//		var table = document.createElement("table");
-//		table.style.maxWidth = this.config.maxWidth;
 		
 		// creating the wrapper
 		var wrapper = document.createElement("div");
@@ -69,7 +64,7 @@ Module.register('MMM-MyTraffic', {
         	}	
 		
 		var MTR = this.MTR;
-		var ROADS = this.prefferedRoads;
+		var ROADS = this.preferredRoads;
 		
 		// Create lists of jams, construction-zones and radar positions, with their road name	
 		var jams = []
@@ -111,7 +106,6 @@ Module.register('MMM-MyTraffic', {
 			wrapper.appendChild(horLine); 
 		   }
 		}
-			   
 			   
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
@@ -159,8 +153,7 @@ Module.register('MMM-MyTraffic', {
 			wrapper.appendChild(warnWrapper);
 			wrapper.appendChild(horLine);
 		   }
-		}
-		
+		}	
 		return wrapper;
 	}, // <-- closes the getDom function from above
 		
@@ -168,14 +161,14 @@ Module.register('MMM-MyTraffic', {
 	// this processes your data
 	processTRAFFIC: function (data) { 
 		this.MTR = data; 
-		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
+//		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
 	
 	// this tells module when to update
 	scheduleUpdate: function () { 
 		setInterval(() => {
-		    this.getTRAFFIC();
+		   this.getTRAFFIC();
 		}, this.config.updateInterval);
 		this.getTRAFFIC();
 		var self = this;
