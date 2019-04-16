@@ -134,7 +134,7 @@ Module.register('MMM-MyTraffic', {
 			headline.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			var duration = document.createElement("div");
 			duration.className.add = "duration xsmall";
-			duration.innerHTML = jams[i].jam.description;
+			duration.innerHTML = jams[i].jam.description + "<BR>";
 			var newLine = document.createElement("br");
 			newLine.className = "newline xsmall";
 			description.appendChild(headline);
