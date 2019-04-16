@@ -123,7 +123,8 @@ Module.register('MMM-MyTraffic', {
 		if (this.config.showJams != false) {
 		   for (var i = 0; i < jams.length; i++) {	
 			var jamsInfoRow = document.createElement("tr");
-			var jamsIconCell = document.createElement("td rowspan=2");
+			var jamsIconCell = document.createElement("td");
+			jamsIconCell.rowSpan = 2;
 			var jamsInfoCell = document.createElement("td");
 			jamsInfoCell.className = "xsmall";
 			var jamsDescRow = document.createElement("tr");
