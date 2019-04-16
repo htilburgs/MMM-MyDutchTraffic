@@ -123,20 +123,25 @@ Module.register('MMM-MyTraffic', {
 		if (this.config.showJams != false) {
 //		   for (var i = 0; i < jams.length; i++) {	
 		   for (var i = 0; i < 5; i++) {
+			 
+			// Table definition   
 			var jamsInfoRow = document.createElement("tr");
 			var jamsIconCell = document.createElement("td");
-			jamsIconCell.rowSpan = 2;
+			jamsIconCell.rowSpan = "2";
 			var jamsInfoCell = document.createElement("td");
 			jamsInfoCell.className = "xsmall";
 			var jamsDescRow = document.createElement("tr");
 			var jamsDescCell = document.createElement("td");
-			jamsDescCell.className = "xsmall";
+			jamsDescCell.className = "xsmall";  
 			   
+			   //Fill table with information
 			   jamsIconCell.innerHTML = '<i class="tr-traffic-Jam"></i>';
-			   jamsInfoRow.appendChild(jamsIconCell);
 			   jamsInfoCell.innerHTML =  jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+			   
+			   jamsInfoRow.appendChild(jamsIconCell);
 			   jamsInfoRow.appendChild(jamsInfoCell);
 			   table.appendChild(jamsInfoRow);
+			   
 			   jamsDescCell.innerHTML = jams[i].jam.description;
 			   jamsDescRow.appendChild(jamsDescCell)
 			   table.appendChild(jamsDescRow);
