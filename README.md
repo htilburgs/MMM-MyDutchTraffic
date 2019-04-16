@@ -23,9 +23,9 @@ Add the module to your modules array in your config.js.
   position: 'top_left',
   header: 'My Traffic Information',
   config: {
-		      showJams: true,				      // Show Traffic jams
-		      showConstructions: true,		// Show Constructions
-		      showRadars: true,			      // Show Speed Traps (Radar Controls)
+  	   showJams: true,			// Show Traffic jams
+	   showConstructions: true,		// Show Constructions
+	   showRadars: true,			// Show Speed Traps (Radar Controls)
 	  }
 },
 ```
