@@ -5,7 +5,7 @@ Copyright (C) 2019 - H. Tilburgs
 MIT License
 //-------------------------------------------
 */
-
+mself=null;
 Module.register('MMM-TT', {
 
 	// Default values
@@ -20,6 +20,7 @@ Module.register('MMM-TT', {
 		retryDelay: 2500,
 		updateInterval: 10 * 60 * 1000		// every 10 minutes
 	},
+
 	MTS: null,			
 	// Create lists of jams, construction-zones and radar positions, with their road name	
 	jams : [],
@@ -44,6 +45,7 @@ Module.register('MMM-TT', {
 	},
 	
 	start: function () {
+    mself=this;
 		Log.info("Starting module: " + this.name);
 		requiresVersion: "2.1.0",	
 			
@@ -162,28 +164,27 @@ Module.register('MMM-TT', {
 	
 	// this processes your data
 	processTRAFFIC: function (data) { 
-		this.MTR = data; 
-    this.jams=[]
-    this.constructions=[]
-    this.radars=[]
-    for (var road of this.MTR.roadEntries){
+		mself.MTR = data; 
+    mself.jams=[]
+    mself.constructions=[]
+    mself.radars=[]
+    for (var road of mself.MTR.roadEntries){
   		for (var jam of road.events.trafficJams){
-         if(this.config.preferredRoads !== 'ALL' && jam.name !== this.config.preferredRoads){
-            // iterate the loop again
-            continue
-         }
-        this.jams.push({name: road.road, jam})			
+        if(mself.config.preferredRoads === 'ALL' || road.road === mself.config.preferredRoads){   
+          Log.log("pushing entry for road="+ road.road)        
+          mself.jams.push({name: road.road, jam})			
+        }
 			}
       for (var construction of road.events.roadWorks){
-        this.constructions.push({name: road.road,construction})
+        mself.constructions.push({name: road.road,construction})
       }
       for (var radar of road.events.radars){
-        this.radars.push({name: road.road,radar})
+        mself.radars.push({name: road.road,radar})
       }
 		}
-//		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
-		this.loaded = true;
-    this.updateDom(100);
+//		console.log(mself.MTR); // uncomment to see if you're getting data (in dev console)
+		mself.loaded = true;
+    mself.updateDom(100);
 	},
 	
 	// this tells module when to update
