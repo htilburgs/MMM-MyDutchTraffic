@@ -129,11 +129,11 @@ Module.register('MMM-MyTraffic', {
 			icon.setAttribute('style', 'background-color: yellow');
 			icon.classList.add('trafficicon-jam', 'small-icon');
 			var description = document.createElement("div");
-			description.className.add = ('description', 'small');
+			description.className = "description xsmall";
 			var headline = document.createElement("div");
 			headline.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			var duration = document.createElement("div");
-			duration.className.add = ('duration', 'small');
+			duration.className.add = "duration xsmall";
 			duration.innerHTML = jams[i].jam.description;
 			var newLine = document.createElement("br");
 			description.appendChild(headline);
