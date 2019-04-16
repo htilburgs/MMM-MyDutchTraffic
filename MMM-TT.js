@@ -168,7 +168,7 @@ Module.register('MMM-TT', {
     this.radars=[]
     for (var road of this.MTR.roadEntries){
   		for (var jam of road.events.trafficJams){
-         if(this.config.preferredRoads !== 'ALL' && j.name !== this.config.preferredRoads){
+         if(this.config.preferredRoads !== 'ALL' && jam.name !== this.config.preferredRoads){
             // iterate the loop again
             continue
          }
