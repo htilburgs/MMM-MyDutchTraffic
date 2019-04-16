@@ -123,7 +123,7 @@ Module.register('MMM-MyTraffic', {
 			event.className = "description xsmall";
 			var information = document.createElement("div");
 			information.className = "information bold"
-			information.innerHTML = radars[i].name + " - " + radars[1].radar.location;
+			information.innerHTML = radars[i].radar.location;
 			var description = document.createElement("div");
 			description.className.add = "duration xsmall";
 			description.innerHTML = radars[i].radar.description;
