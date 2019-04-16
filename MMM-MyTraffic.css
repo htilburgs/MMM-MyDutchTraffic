@@ -31,6 +31,7 @@
 .tr-traffic-jam:before {
   content: "\e901";
   color: yellow;
+  display: block;
 }
 .tr-traffic-cone:before {
   content: "\e902";
@@ -46,6 +47,7 @@
 .tr-traffic-jam {
   content: "\e901";
   color: yellow;
+  display: block;
 }
 .tr-traffic-cone {
   content: "\e902";
