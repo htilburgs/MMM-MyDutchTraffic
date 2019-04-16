@@ -130,7 +130,7 @@ Module.register('MMM-MyTraffic', {
 			var jamsDescCell = document.createElement("td");
 			jamsDescCell.className = "xsmall";
 			   
-			   jamsIconCell.innerHTML = '<i class="tr-traffic-Jam"></i>
+			   jamsIconCell.innerHTML = '<i class="tr-traffic-Jam"></i>';
 			   jamsInfoRow.appendChild(jamsIconCell);
 			   jamsInfoCell.innerHTML =  jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
 			   jamsInfoRow.appendChild(jamsInfoCell);
