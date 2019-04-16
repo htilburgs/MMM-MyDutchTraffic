@@ -22,7 +22,7 @@ module.exports = NodeHelper.create({
 	}, (error, response, body) => {
 	if (!error && response.statusCode == 200) {
 	var result = JSON.parse(body);					// JSON data path	
-	console.log(response.statusCode + result);			// Uncomment to see in terminal for test purposes
+	//console.log(response.statusCode + result);			// Uncomment to see in terminal for test purposes
 	this.sendSocketNotification('MYTRAFFIC_RESULT', result);
 	}
         });

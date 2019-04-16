@@ -20,7 +20,11 @@ Module.register('MMM-TT', {
 		retryDelay: 2500,
 		updateInterval: 10 * 60 * 1000		// every 10 minutes
 	},
-		
+	MTS: null,			
+	// Create lists of jams, construction-zones and radar positions, with their road name	
+	jams : [],
+	constructions : [],
+	radars : [],	
 	// Define stylesheet
 	getStyles: function () {
 		return ["MMM-TT.css"];
@@ -57,20 +61,14 @@ Module.register('MMM-TT', {
 		wrapper.style.maxWidth = this.config.maxWidth;
 	
 		// The loading sequence
-        	if (!this.loaded) {
-            	    wrapper.innerHTML = "Loading....";
-            	    wrapper.classList.add("bright", "light", "small");
-            	    return wrapper;
-        	}	
-		
-		var MTR = this.MTR;
-		
-		// Create lists of jams, construction-zones and radar positions, with their road name	
-		var jams = []
-		var constructions = []
-		var radars = []
+    if (!this.loaded) {
+            wrapper.innerHTML = "Loading....";
+            wrapper.classList.add("bright", "light", "small");
+            return wrapper;
+    }	
 
-		for (var road of MTR.roadEntries){
+
+/*		for (var road of MTR.roadEntries){
   			for (var jam of road.events.trafficJams){
 			jams.push({name: road.road, jam})			
 			}
@@ -80,34 +78,27 @@ Module.register('MMM-TT', {
   			for (var radar of road.events.radars){
     			radars.push({name: road.road,radar})
   			}
-		}
+		} */ 
 	
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
-		   for (var i = 0; i < jams.length; i++) {	
-			   
-			   for (var jam of jams) {	
-			           if(jam.name !== this.config.preferredRoads){
-			              // iterate the loop again
-			              continue
-			           }
-			         } 
-			   
+	   for (var j of this.jams) {	
+  			   
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-jam', 'small-icon');
 			var event = document.createElement("div");
 			event.className = "description xsmall";
 			var information = document.createElement("div");
-			information.className = "information bold"
-			if (typeof jams[i].jam.startDate !== "undefined") {
-				information.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+			information.className = "description bold"
+			if (typeof j.jam.startDate !== "undefined") {
+				information.innerHTML = j.name + " - " + j.jam.startDate + " - " + (j.jam.distance/1000) + "KM";
 				} else {
-				information.innerHTML = jams[i].name;
+				information.innerHTML = j.name;
 				}
 			var description = document.createElement("div");
-			description.className.add = "duration xsmall";
-			description.innerHTML = jams[i].jam.description;
+			description.className.add = "description xsmall";
+			description.innerHTML = j.jam.description;
 			var horLine = document.createElement("hr");
 			event.appendChild(information);
 			event.appendChild(description);
@@ -120,49 +111,49 @@ Module.register('MMM-TT', {
 			   
 		//Display Traffic Camera (Radar) information
 		if (this.config.showRadars != false) {		
-		   for (var i = 0; i < radars.length; i++) {	
-			var warnWrapper = document.createElement("div");
-			var icon = document.createElement("div");
-			icon.classList.add('trafficicon-camera', 'small-icon');
-			var event = document.createElement("div");
-			event.className = "description xsmall";
-			var information = document.createElement("div");
-			information.className = "information bold"
-			information.innerHTML = radars[i].radar.location;
-			var description = document.createElement("div");
-			description.className.add = "duration xsmall";
-			description.innerHTML = radars[i].radar.description;
-			var horLine = document.createElement("hr");
-			event.appendChild(information);
-			event.appendChild(description);
-			warnWrapper.appendChild(icon);
-			warnWrapper.appendChild(event);
-			wrapper.appendChild(warnWrapper);
-			wrapper.appendChild(horLine); 
+		  for (var r of this.radars) {	
+        var warnWrapper = document.createElement("div");
+        var icon = document.createElement("div");
+        icon.classList.add('trafficicon-camera', 'small-icon');
+        var event = document.createElement("div");
+        event.className = "description xsmall";
+        var information = document.createElement("div");
+        information.className = "description bold"
+        information.innerHTML = r.radar.location;
+        var description = document.createElement("div");
+        description.className.add = "description xsmall";
+        description.innerHTML = r.radar.description;
+        var horLine = document.createElement("hr");
+        event.appendChild(information);
+        event.appendChild(description);
+        warnWrapper.appendChild(icon);
+        warnWrapper.appendChild(event);
+        wrapper.appendChild(warnWrapper);
+        wrapper.appendChild(horLine); 
 		   }
 		}
 				
 		//Display Traffic Constructions information
 		if (this.config.showConstructions != false) {		
-		   for (var i = 0; i < radars.length; i++) {	
-			var warnWrapper = document.createElement("div");
-			var icon = document.createElement("div");
-			icon.classList.add('trafficicon-construction', 'small-icon');
-			var event = document.createElement("div");
-			event.className = "description xsmall";
-			var information = document.createElement("div");
-			information.className = "information bold"
-			information.innerHTML = constructions[i].name + " - " + constructions[i].construction.startDate + " t/m " + constructions[i].construction.stopDate;
-			var description = document.createElement("div");
-			description.className.add = "duration xsmall";
-			description.innerHTML = constructions[i].construction.description;
-			var horLine = document.createElement("hr");
-			event.appendChild(information);
-			event.appendChild(description);
-			warnWrapper.appendChild(icon);
-			warnWrapper.appendChild(event);
-			wrapper.appendChild(warnWrapper);
-			wrapper.appendChild(horLine);
+		  for (var c of this.constructions) {	
+        var warnWrapper = document.createElement("div");
+        var icon = document.createElement("div");
+        icon.classList.add('trafficicon-construction', 'small-icon');
+        var event = document.createElement("div");
+        event.className = "description xsmall";
+        var information = document.createElement("div");
+        information.className = "description bold"
+        information.innerHTML = c.name + " - " + c.construction.startDate + " t/m " + c.construction.stopDate;
+        var description = document.createElement("div");
+        description.className.add = "description xsmall";
+        description.innerHTML = c.construction.description;
+        var horLine = document.createElement("hr");
+        event.appendChild(information);
+        event.appendChild(description);
+        warnWrapper.appendChild(icon);
+        warnWrapper.appendChild(event);
+        wrapper.appendChild(warnWrapper);
+        wrapper.appendChild(horLine);
 		   }
 		}	
 		return wrapper;
@@ -172,8 +163,27 @@ Module.register('MMM-TT', {
 	// this processes your data
 	processTRAFFIC: function (data) { 
 		this.MTR = data; 
+    this.jams=[]
+    this.constructions=[]
+    this.radars=[]
+    for (var road of this.MTR.roadEntries){
+  		for (var jam of road.events.trafficJams){
+         if(this.config.preferredRoads !== 'ALL' && j.name !== this.config.preferredRoads){
+            // iterate the loop again
+            continue
+         }
+        this.jams.push({name: road.road, jam})			
+			}
+      for (var construction of road.events.roadWorks){
+        this.constructions.push({name: road.road,construction})
+      }
+      for (var radar of road.events.radars){
+        this.radars.push({name: road.road,radar})
+      }
+		}
 //		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
+    this.updateDom(100);
 	},
 	
 	// this tells module when to update
