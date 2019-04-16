@@ -94,7 +94,11 @@ Module.register('MMM-MyTraffic', {
 			event.className = "description xsmall";
 			var information = document.createElement("div");
 			information.className = "information bold"
-			information.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+			if (jams[i].jam.startDate != 'undefined') {
+				information.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+				} else {
+				information.innerHTML = jams[i].name;
+				}
 			var description = document.createElement("div");
 			description.className.add = "duration xsmall";
 			description.innerHTML = jams[i].jam.description;
