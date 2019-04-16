@@ -74,7 +74,7 @@ Module.register('MMM-TT', {
 
 		for (var road of MTR.roadEntries){
   			for (var jam of road.events.trafficJams){
-			if this.config.preferredRoads == "All"
+//			if this.config.preferredRoads == "All"
 			jams.push({name: road.road, jam})
 			}
   			for (var construction of road.events.roadWorks){
