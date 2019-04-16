@@ -93,7 +93,6 @@ Module.register('MMM-MyTraffic', {
 		   for (var i = 0; i < jams.length; i++) {	
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
-			icon.setAttribute('style', 'background-color: yellow');
 			icon.classList.add('trafficicon-jam', 'small-icon');
 			var event = document.createElement("div");
 			event.className = "description xsmall";
@@ -103,13 +102,13 @@ Module.register('MMM-MyTraffic', {
 			var description = document.createElement("div");
 			description.className.add = "duration xsmall";
 			description.innerHTML = jams[i].jam.description;
-			var newLine = document.createElement("hr");
+			var horLine = document.createElement("hr");
 			event.appendChild(information);
 			event.appendChild(description);
 			warnWrapper.appendChild(icon);
 			warnWrapper.appendChild(event);
 			wrapper.appendChild(warnWrapper);
-			wrapper.appendChild(newLine); 
+			wrapper.appendChild(horLine); 
 		   }
 		}
 			   
@@ -119,7 +118,6 @@ Module.register('MMM-MyTraffic', {
 		   for (var i = 0; i < radars.length; i++) {	
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
-//			icon.setAttribute('style', 'background-color: yellow');
 			icon.classList.add('trafficicon-camera', 'small-icon');
 			var event = document.createElement("div");
 			event.className = "description xsmall";
@@ -129,33 +127,40 @@ Module.register('MMM-MyTraffic', {
 			var description = document.createElement("div");
 			description.className.add = "duration xsmall";
 			description.innerHTML = radars[i].radar.description;
-			var newLine = document.createElement("hr");
+			var horLine = document.createElement("hr");
 			event.appendChild(information);
 			event.appendChild(description);
 			warnWrapper.appendChild(icon);
 			warnWrapper.appendChild(event);
 			wrapper.appendChild(warnWrapper);
-			wrapper.appendChild(newLine); 
+			wrapper.appendChild(horLine); 
 		   }
 		}
-/*				
+				
 		//Display Traffic Constructions information
 		if (this.config.showConstructions != false) {		
-		   for (var i = 0; i < radars.length; i++) {			
-			var constructionsRow = document.createElement("tr");
-			constructionsRow.className = "xsmall";
-			constructionsRow.innerHTML = '<i class="tr-traffic-cone"></i> ' + constructions[i].name + " - " + constructions[i].construction.startDate + " t/m " + constructions[i].construction.stopDate;
-			table.appendChild(constructionsRow);
-			
-			var constructionsRow = document.createElement("tr");
-			constructionsRow.className = "xsmall";
-			constructionsRow.innerHTML = constructions[i].construction.description;
-			table.appendChild(constructionsRow);
+		   for (var i = 0; i < radars.length; i++) {	
+			var warnWrapper = document.createElement("div");
+			var icon = document.createElement("div");
+			icon.classList.add('trafficicon-cone', 'small-icon');
+			var event = document.createElement("div");
+			event.className = "description xsmall";
+			var information = document.createElement("div");
+			information.className = "information bold"
+			information.innerHTML = constructions[i].name + " - " + constructions[i].construction.startDate + " t/m " + constructions[i].construction.stopDate;
+			var description = document.createElement("div");
+			description.className.add = "duration xsmall";
+			description.innerHTML = constructions[i].construction.description;
+			var horLine = document.createElement("hr");
+			event.appendChild(information);
+			event.appendChild(description);
+			warnWrapper.appendChild(icon);
+			warnWrapper.appendChild(event);
+			wrapper.appendChild(warnWrapper);
+			wrapper.appendChild(horLine);
 		   }
 		}
 		
-		return table;
-*/
 		return wrapper;
 	}, // <-- closes the getDom function from above
 		
