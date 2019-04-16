@@ -10,12 +10,12 @@ Module.register('MMM-TT', {
 
 	// Default values
 	defaults: {
-		showJams: true,				// Show Traffic jams
-		showConstructions: true,		// Show Constructions
-		showRadars: true,			// Show Radar controles
-		preferredRoads: ["A2","A4","A15"],		// Display only preferred roads - All is everything, other "A1",A2",..
-		maxWidth: "500px",			// Max width wrapper
-		animationSpeed: 1000, 			// fade in and out speed
+		showJams: true,						// Show Traffic jams
+		showConstructions: true,			// Show Constructions
+		showRadars: true,					// Show Radar controles
+		preferredRoads: null,	// Display only preferred roads - All is everything, other "A1",A2",..
+		maxWidth: "500px",					// Max width wrapper
+		animationSpeed: 1000, 				// fade in and out speed
 		initialLoadDelay: 1000,
 		retryDelay: 2500,
 		updateInterval: 10 * 60 * 1000		// every 10 minutes
@@ -81,27 +81,10 @@ Module.register('MMM-TT', {
     			radars.push({name: road.road,radar})
   			}
 		}	
-		
-		// FOR TESTING PURPOSES
-		for (var jam of jams) {
-			console.log(jams);
-		}
 	
 		//Display Traffic Jam information
 		if (this.config.showJams != false) {
-			
-//		for (var jam of jams) {	
-		for (var i = 0; i < jams.length; i++) {		
-		if (this.config.preferredRoads !== "All") {
-        		// if the jam name doesn't match
-			if(jams.name !== this.config.preferredRoads){
-           		// iterate the loop again
-           		continue
-        		}
-			} 
-			     // have matching jam (or all) here
-			}
-			
+		   for (var i = 0; i < jams.length; i++) {	
 			var warnWrapper = document.createElement("div");
 			var icon = document.createElement("div");
 			icon.classList.add('trafficicon-jam', 'small-icon');
@@ -109,11 +92,11 @@ Module.register('MMM-TT', {
 			event.className = "description xsmall";
 			var information = document.createElement("div");
 			information.className = "information bold"
-//			if (jams[i].jam.startDate !== "undefined") {
-//				information.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
-//				} else {
-//				information.innerHTML = jams[i].name;
-//				}
+			if (typeof jams[i].jam.startDate !== "undefined") {
+				information.innerHTML = jams[i].name + " - " + jams[i].jam.startDate + " - " + (jams[i].jam.distance/1000) + "KM";
+				} else {
+				information.innerHTML = jams[i].name;
+				}
 			var description = document.createElement("div");
 			description.className.add = "duration xsmall";
 			description.innerHTML = jams[i].jam.description;
@@ -123,7 +106,8 @@ Module.register('MMM-TT', {
 			warnWrapper.appendChild(icon);
 			warnWrapper.appendChild(event);
 			wrapper.appendChild(warnWrapper);
-			wrapper.appendChild(horLine);
+			wrapper.appendChild(horLine); 
+		   }
 		}
 			   
 		//Display Traffic Camera (Radar) information
