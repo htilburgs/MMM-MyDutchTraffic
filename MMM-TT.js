@@ -57,6 +57,7 @@ Module.register('MMM-TT', {
 		this.scheduleUpdate();     	// <-- When the module updates (see below)
 	},
 
+	
 	getDom: function () {
 		
 		// creating the wrapper
@@ -71,7 +72,7 @@ Module.register('MMM-TT', {
             	
 		return wrapper;
 	}	
-		
+				
 		if (this.config.largeIcons != false) {
 			
 			//Display Traffic Jam information
@@ -154,27 +155,48 @@ Module.register('MMM-TT', {
 		} else {
 			//Display Traffic Jam information
 			if (this.config.showJams != false) {
-			for (var j of this.jams) {	
-
-				var warnWrapper = document.createElement("div");
-				var event = document.createElement("div");
-				event.className = "event-small xsmall";
-				var information = document.createElement("div");
-				information.className = "information-small bold"
-				if (typeof j.jam.startDate !== "undefined") {
-					information.innerHTML = '<i class="tr-traffic-jam"></i> ' + j.name + " - " + j.jam.startDate + " - " + (j.jam.distance/1000) + "KM";
-					} else {
-					information.innerHTML = j.name;
-					}
-				var description = document.createElement("div");
-				description.className.add = "description-small xsmall";
-				description.innerHTML = j.jam.description;
-				event.appendChild(information);
-				event.appendChild(description);
-				warnWrapper.appendChild(event);
-				wrapper.appendChild(warnWrapper);
+			for (var j of this.jams) {		
+				var jamsNameRow = document.createElement("div");
+				jamsNameRow.className = "xsmall";
+				if (typeof j.jam.startDate !== 'undefined' && j.jam.distance !== 'NaN') {
+					jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + j.name + " - " + j.jam.startDate + " - " + (j.jam.distance/1000) + "KM";
+				} else {
+					jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + j.name;
 				}
+				wrapper.appendChild(jamsNameRow);
+				
+				var jamsReasonRow = document.createElement("div");
+				jamsReasonRow.className = "xsmall";
+				jamsReasonRow.innerHTML = j.jam.description;
+				wrapper.appendChild(jamsReasonRow);
+		   		}
 			}
+/*				
+		//Display Trafic Camera (Radar) information
+		if (this.config.showRadars != false) {		
+		   for (var i = 0; i < radars.length; i++) {	
+			var radarsRow = document.createElement("tr");
+			radarsRow.className = "xsmall";
+			radarsRow.innerHTML = '<i class="tr-traffic-camera"></i> ' + radars[i].name + " - " + radars[i].radar.description;
+			table.appendChild(radarsRow);
+		   }
+		}
+				
+		//Display Traffic Constructions information
+		if (this.config.showConstructions != false) {		
+		   for (var i = 0; i < radars.length; i++) {			
+			var constructionsRow = document.createElement("tr");
+			constructionsRow.className = "xsmall";
+			constructionsRow.innerHTML = '<i class="tr-traffic-cone"></i> ' + constructions[i].name + " - " + constructions[i].construction.startDate + " t/m " + constructions[i].construction.stopDate;
+			table.appendChild(constructionsRow);
+			
+			var constructionsRow = document.createElement("tr");
+			constructionsRow.className = "xsmall";
+			constructionsRow.innerHTML = constructions[i].construction.description;
+			table.appendChild(constructionsRow);
+		   }
+		}
+*/
 		}	
 			
 		return wrapper;
