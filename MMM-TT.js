@@ -162,7 +162,7 @@ Module.register('MMM-TT', {
 				var information = document.createElement("div");
 				information.className = "information-small bold"
 				if (typeof j.jam.startDate !== "undefined") {
-					information.innerHTML = '<i class="tr-traffic-jam"></i> ' + 'j.name + " - " + j.jam.startDate + " - " + (j.jam.distance/1000) + "KM";
+					information.innerHTML = '<i class="tr-traffic-jam"></i> ' + j.name + " - " + j.jam.startDate + " - " + (j.jam.distance/1000) + "KM";
 					} else {
 					information.innerHTML = j.name;
 					}
