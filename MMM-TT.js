@@ -11,11 +11,11 @@ Module.register('MMM-TT', {
 	// Default values
 	defaults: {
 		showJams: true,				// Show Traffic jams
-		showConstructions: true,		// Show Constructions
-		showRadars: true,			// Show Radar controles
+		showConstructions: false,		// Show Constructions
+		showRadars: false,			// Show Radar controles
 		preferredRoads: ['ALL'],		// Display only preferred roads - All is everything, other "A1",A2",..
 		maxWidth: "500px",			// Max width wrapper
-		largeIcons: true,			// Display Large or Small icons and information
+		largeIcons: false,			// Display Large or Small icons and information
 		animationSpeed: 1000, 			// fade in and out speed
 		initialLoadDelay: 1000,
 		retryDelay: 2500,
@@ -151,7 +151,31 @@ Module.register('MMM-TT', {
 				wrapper.appendChild(horLine);
 				}
 			}
-		}			
+		} else {
+			//Display Traffic Jam information
+			if (this.config.showJams != false) {
+			for (var j of this.jams) {	
+
+				var warnWrapper = document.createElement("div");
+				var event = document.createElement("div");
+				event.className = "event-small xsmall";
+				var information = document.createElement("div");
+				information.className = "information-small bold"
+				if (typeof j.jam.startDate !== "undefined") {
+					information.innerHTML = '<i class="tr-traffic-jam"></i> ' + 'j.name + " - " + j.jam.startDate + " - " + (j.jam.distance/1000) + "KM";
+					} else {
+					information.innerHTML = j.name;
+					}
+				var description = document.createElement("div");
+				description.className.add = "description-small xsmall";
+				description.innerHTML = j.jam.description;
+				event.appendChild(information);
+				event.appendChild(description);
+				warnWrapper.appendChild(event);
+				wrapper.appendChild(warnWrapper);
+				}
+			}
+		}	
 			
 		return wrapper;
 	}, // <-- closes the getDom function from above
