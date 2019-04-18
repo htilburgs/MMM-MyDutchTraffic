@@ -94,13 +94,13 @@ Module.register('MMM-TT', {
 				var description = document.createElement("div");
 				description.className.add = "description xsmall";
 				description.innerHTML = j.jam.description;
-				var horLine = document.createElement("hr");
+//				var horLine = document.createElement("hr");
 				event.appendChild(information);
 				event.appendChild(description);
 				warnWrapper.appendChild(icon);
 				warnWrapper.appendChild(event);
 				wrapper.appendChild(warnWrapper);
-				wrapper.appendChild(horLine); 
+//				wrapper.appendChild(horLine); 
 			  }
 		  }
 
@@ -119,13 +119,13 @@ Module.register('MMM-TT', {
 				var description = document.createElement("div");
 				description.className.add = "description xsmall";
 				description.innerHTML = r.radar.description;
-				var horLine = document.createElement("hr");
+//				var horLine = document.createElement("hr");
 				event.appendChild(information);
 				event.appendChild(description);
 				warnWrapper.appendChild(icon);
 				warnWrapper.appendChild(event);
 				wrapper.appendChild(warnWrapper);
-				wrapper.appendChild(horLine); 
+//				wrapper.appendChild(horLine); 
 				}
 			}
 
@@ -143,13 +143,13 @@ Module.register('MMM-TT', {
 				var description = document.createElement("div");
 				description.className.add = "description xsmall";
 				description.innerHTML = c.construction.description;
-				var horLine = document.createElement("hr");
+//				var horLine = document.createElement("hr");
 				event.appendChild(information);
 				event.appendChild(description);
 				warnWrapper.appendChild(icon);
 				warnWrapper.appendChild(event);
 				wrapper.appendChild(warnWrapper);
-				wrapper.appendChild(horLine);
+//				wrapper.appendChild(horLine);
 				}
 			}
 			
