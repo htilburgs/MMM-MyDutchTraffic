@@ -156,19 +156,19 @@ Module.register('MMM-TT', {
 			//Display Traffic Jam information
 			if (this.config.showJams != false) {
 			for (var j of this.jams) {		
-				var jamsNameRow = document.createElement("div");
-				jamsNameRow.className = "xsmall";
+				var jamsInformation = document.createElement("div");
+				jamsInformation.className = "jamsInformation xsmall bold";
 				if (typeof j.jam.startDate !== 'undefined' && j.jam.distance !== 'NaN') {
-					jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + j.name + " - " + j.jam.startDate + " - " + (j.jam.distance/1000) + "KM";
+					jamsInformation.innerHTML = '<i class="tr-traffic-jam"></i> ' + j.name + " - " + j.jam.startDate + " - " + (j.jam.distance/1000) + "KM";
 				} else {
-					jamsNameRow.innerHTML = '<i class="tr-traffic-jam"></i> ' + j.name;
+					jamsInformation.innerHTML = '<i class="tr-traffic-jam"></i> ' + j.name;
 				}
-				wrapper.appendChild(jamsNameRow);
+				wrapper.appendChild(jamsInformation);
 				
-				var jamsReasonRow = document.createElement("div");
-				jamsReasonRow.className = "xsmall";
-				jamsReasonRow.innerHTML = j.jam.description;
-				wrapper.appendChild(jamsReasonRow);
+				var jamsDescription = document.createElement("div");
+				jamsDescription.className = "jamsDescription xsmall";
+				jamsDescription.innerHTML = j.jam.description;
+				wrapper.appendChild(jamsDescription);
 		   		}
 			}
 /*				
