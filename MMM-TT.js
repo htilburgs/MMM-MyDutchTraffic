@@ -219,7 +219,7 @@ Module.register('MMM-TT', {
       			{
 			
         		for (var j1 of road.events.trafficJams){  
-            		Log.log("pushing entry for road="+ road.road)        
+//            		Log.log("pushing entry for road="+ road.road)        
             		this.jams.push({name: road.road, jam:j1})
           		}
 			
@@ -233,7 +233,7 @@ Module.register('MMM-TT', {
 		}
 	}
 		
-//		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
+		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
 	
