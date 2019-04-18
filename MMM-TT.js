@@ -178,7 +178,7 @@ Module.register('MMM-TT', {
 			if (this.config.showRadars != false) {		
 			   for (var r of this.radars) {	
 				var radarInformation = document.createElement("div");
-				radarInformation.className = "radarInformation xsmall";
+				radarInformation.className = "radarInformation xsmall bold";
 				radarInformation.innerHTML = '<i class="tr-traffic-camera"></i> ' + r.name + " - " + r.radar.description;
 				wrapper.appendChild(radarInformation);
 			   }
