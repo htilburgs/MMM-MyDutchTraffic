@@ -171,32 +171,31 @@ Module.register('MMM-TT', {
 				wrapper.appendChild(jamsDescription);
 		   		}
 			}
-/*				
-		//Display Trafic Camera (Radar) information
-		if (this.config.showRadars != false) {		
-		   for (var i = 0; i < radars.length; i++) {	
-			var radarsRow = document.createElement("tr");
-			radarsRow.className = "xsmall";
-			radarsRow.innerHTML = '<i class="tr-traffic-camera"></i> ' + radars[i].name + " - " + radars[i].radar.description;
-			table.appendChild(radarsRow);
-		   }
-		}
 				
-		//Display Traffic Constructions information
-		if (this.config.showConstructions != false) {		
-		   for (var i = 0; i < radars.length; i++) {			
-			var constructionsRow = document.createElement("tr");
-			constructionsRow.className = "xsmall";
-			constructionsRow.innerHTML = '<i class="tr-traffic-cone"></i> ' + constructions[i].name + " - " + constructions[i].construction.startDate + " t/m " + constructions[i].construction.stopDate;
-			table.appendChild(constructionsRow);
+			//Display Trafic Camera (Radar) information
+			if (this.config.showRadars != false) {		
+			   for (var r of this.radars) {	
+				var radarInformation = document.createElement("tr");
+				radarInformation.className = "radarInformation xsmall";
+				radarInformation.innerHTML = '<i class="tr-traffic-camera"></i> ' + r.name + " - " + r.radar.description;
+				wrapper.appendChild(radarInformation);
+			   }
+			}
 			
-			var constructionsRow = document.createElement("tr");
-			constructionsRow.className = "xsmall";
-			constructionsRow.innerHTML = constructions[i].construction.description;
-			table.appendChild(constructionsRow);
-		   }
-		}
-*/
+			//Display Traffic Constructions information
+			if (this.config.showConstructions != false) {		
+			   for (var c of this.constructions) {			
+				var consInformation = document.createElement("tr");
+				consInformation.className = "consInformation xsmall bold";
+				consInformation.innerHTML = '<i class="tr-traffic-cone"></i> ' + c.name + " - " + c.construction.startDate + " t/m " + c.construction.stopDate;
+				wrapper.appendChild(consInformation);
+
+				var consDescription = document.createElement("tr");
+				consDescription.className = "consDescription xsmall";
+				consDescription.innerHTML = c.construction.description;
+				wrapper.appendChild(consDescription);
+			   }
+			}
 		}	
 			
 		return wrapper;
