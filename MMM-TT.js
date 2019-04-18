@@ -168,7 +168,7 @@ Module.register('MMM-TT', {
 				var jamsDescription = document.createElement("div");
 				jamsDescription.className = "jamsDescription xsmall";
 				jamsDescription.innerHTML = j.jam.description;
-				var horLine = document.createElement("hr-small");
+				var horLine = document.createElement("hr");
 				wrapper.appendChild(jamsDescription);
 				wrapper.appendChild(horLine);
 		   		}
