@@ -129,4 +129,6 @@ hr {
     	color: dimgray;
     	background-color: dimgray;
     	border: none;
+	margin-block-start: 0.1em;
+    	margin-block-end: 0.1em;
 }
