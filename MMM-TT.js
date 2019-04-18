@@ -152,7 +152,9 @@ Module.register('MMM-TT', {
 				wrapper.appendChild(horLine);
 				}
 			}
-		} else {
+			
+		} else {	//Part of largeIcons: false
+			
 			//Display Traffic Jam information
 			if (this.config.showJams != false) {
 			for (var j of this.jams) {		
@@ -175,7 +177,7 @@ Module.register('MMM-TT', {
 			//Display Trafic Camera (Radar) information
 			if (this.config.showRadars != false) {		
 			   for (var r of this.radars) {	
-				var radarInformation = document.createElement("tr");
+				var radarInformation = document.createElement("div");
 				radarInformation.className = "radarInformation xsmall";
 				radarInformation.innerHTML = '<i class="tr-traffic-camera"></i> ' + r.name + " - " + r.radar.description;
 				wrapper.appendChild(radarInformation);
@@ -185,12 +187,12 @@ Module.register('MMM-TT', {
 			//Display Traffic Constructions information
 			if (this.config.showConstructions != false) {		
 			   for (var c of this.constructions) {			
-				var consInformation = document.createElement("tr");
+				var consInformation = document.createElement("div");
 				consInformation.className = "consInformation xsmall bold";
 				consInformation.innerHTML = '<i class="tr-traffic-cone"></i> ' + c.name + " - " + c.construction.startDate + " t/m " + c.construction.stopDate;
 				wrapper.appendChild(consInformation);
 
-				var consDescription = document.createElement("tr");
+				var consDescription = document.createElement("div");
 				consDescription.className = "consDescription xsmall";
 				consDescription.innerHTML = c.construction.description;
 				wrapper.appendChild(consDescription);
