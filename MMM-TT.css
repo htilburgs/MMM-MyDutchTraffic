@@ -62,15 +62,6 @@
 	text-align: left;
 }
 
-hr-small {
-	height: 1px;
-    	color: dimgray;
-    	background-color: dimgray;
-    	border: none;
-	margin-block-start: 0.1em;
-    	margin-block-end: 0.1em;
-}
-
 .wrapper {}
 
 .trafficicon-jam {
