@@ -10,8 +10,6 @@ Clone this repository in your modules folder, and install dependencies:
 ```
 cd ~/MagicMirror/modules 
 git clone https://github.com/htilburgs/MMM-MyTraffic
-cd MMM-MyTravvic
-npm install 
 ```
 
 ## Configuration
@@ -24,12 +22,12 @@ Add the module to your modules array in your config.js.
   position: 'top_left',
   header: 'My Traffic Information',
   config: {
-  	   showJams: true,			// Show Traffic jams
-	   showConstructions: true,		// Show Constructions
-	   showRadars: true,			// Show Speed Traps (Radar Controls)
-	   largeIcons: true,			// Show Large or Small icons 
-	   preferredRoads: ['ALL']		// Show All roads or show you're selection -> ['A1','A50','A67']
-	   maxWidth: "500px"
+  	   showJams: true,		// Show Traffic jams
+	   showConstructions: true,	// Show Constructions
+	   showRadars: true,		// Show Speed Traps (Radar Controls)
+	   largeIcons: true,		// Show Large or Small icons
+	   maxWidth: "500px",		// Max width wrapper
+	   preferredRoads: ['ALL']	// Show All roads or show you're selection -> ['A1','A50','A67']
 	  }
 },
 ```
@@ -56,6 +54,14 @@ Here is the documentation of options for the modules configuration:
     <tr>
       <td><code>showRadars</code></td>
       <td>Show Speed traps (Radar Controls) on the Dutch highways<br /><br /><strong>True/False</strong><br />Default: <code>True</code></td>
+    </tr>    
+    <tr>
+      <td><code>lareIcons</code></td>
+      <td>Show large or small icons and information<br /><br /><strong>True/False</strong><br />Default: <code>True</code></td>
+    </tr>    
+    <tr>
+      <td><code>maxWidth</code></td>
+      <td>Max Width of the module<br /><br /><strong>String</strong><br />Default: <code>"500px"</code></td>
     </tr>    
     <tr>
       <td><code>preferredRoads</code></td>
