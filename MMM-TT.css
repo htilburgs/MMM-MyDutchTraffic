@@ -39,6 +39,31 @@
   color: orange;
 }
 
+.jamsInformation {
+	font-family: Roboto;
+	margin-left: 10px;
+	color: white;
+	padding-left: 50px;
+	padding-top: 3px;
+	color: #fff;
+	width: auto;
+	line-height: 20px;
+	text-align: left;
+}
+
+.jamsDescription {
+	font-family: Roboto;
+	margin-left: 10px;
+	color: white;
+	padding-left: 50px;
+	padding-top: 3px;
+	color: #fff;
+	width: auto;
+	line-height: 20px;
+	text-align: left;
+}
+
+
 .wrapper {}
 
 .trafficicon-jam {
