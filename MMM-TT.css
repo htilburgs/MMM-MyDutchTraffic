@@ -64,6 +64,42 @@
 	margin-block-end: 0.1em;
 }
 
+.radarInformation {
+	font-family: Roboto;
+	margin-left: 10px;
+	color: white;
+	padding-top: 3px;
+	color: #fff;
+	width: auto;
+	line-height: 20px;
+	text-align: left;
+}
+
+.consInformation {
+	font-family: Roboto;
+	margin-left: 10px;
+	color: white;
+	padding-top: 3px;
+	color: #fff;
+	width: auto;
+	line-height: 20px;
+	text-align: left;
+}
+
+.consDescription {
+	font-family: Roboto;
+	margin-left: 10px;
+	color: white;
+	padding-left: 19px;
+	padding-top: 3px;
+	color: #fff;
+	width: auto;
+	line-height: 20px;
+	text-align: left;
+	margin-block-start: 0.1em;
+	margin-block-end: 0.1em;
+}
+
 .wrapper {}
 
 .trafficicon-jam {
@@ -125,6 +161,7 @@
 	line-height: 20px;
 	text-align: left;
 }
+
 hr {
 	height: 1px;
     	color: dimgray;
