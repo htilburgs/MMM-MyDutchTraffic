@@ -65,7 +65,7 @@ Here is the documentation of options for the modules configuration:
     </tr>    
     <tr>
       <td><code>preferredRoads</code></td>
-      <td>Show ALL roads or show you're own selection<br /><br /><strong>Array</strong><br />Default: <code>['ALL']</code><br /><br /><strong>Example selection:</strong> preferredRoads: ['A1' , 'A2' , 'A50' , 'A67']</td>
+      <td>Show ALL roads or show you're selection<br /><br /><strong>Array</strong><br />Default: <code>['ALL']</code><br /><br /><strong>Example selection:</strong> preferredRoads: ['A1' , 'A2' , 'A50' , 'A67']</td>
     </tr>    
 </tbody>
 </table>
