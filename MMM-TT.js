@@ -13,7 +13,7 @@ Module.register('MMM-TT', {
 		showJams: true,				// Show Traffic jams
 		showConstructions: false,		// Show Constructions
 		showRadars: false,			// Show Radar controles
-		preferredRoads: ['ALL'],		// Display only preferred roads - All is everything, other "A1",A2",..
+		preferredRoads: ['ALL'],		// Show All roads or show you're selection -> ['A1','A50','A67']
 		maxWidth: "500px",			// Max width wrapper
 		largeIcons: false,			// Display Large or Small icons and information
 		animationSpeed: 1000, 			// fade in and out speed
@@ -216,12 +216,12 @@ Module.register('MMM-TT', {
 		this.pRoads = pRoads.map(function(x){ return x.toUpperCase() })
     		
 		for (var road of this.MTR.roadEntries){
-      			Log.log(" typeof="+typeof this.pRoads)
+//     			Log.log(" typeof="+typeof this.pRoads)		// uncomment to see if you're getting data (in dev console)
       			if(this.pRoads.includes(road.road) || this.pRoads.includes("ALL")) 
       			{
 			
         		for (var j1 of road.events.trafficJams){  
-//            		Log.log("pushing entry for road="+ road.road)        
+//            		Log.log("pushing entry for road="+ road.road)	// uncomment to see if you're getting data (in dev console)
             		this.jams.push({name: road.road, jam:j1})
           		}
 			
@@ -235,7 +235,7 @@ Module.register('MMM-TT', {
 		}
 	}
 		
-		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
+//		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
 	},
 	
@@ -259,6 +259,6 @@ Module.register('MMM-TT', {
 		this.processTRAFFIC(payload);
         	this.updateDom(100);
 		}
-		//this.updateDom(this.config.initialLoadDelay);
+		//this.updateDom(this.config.initialLoadDelay);		// For testing purposes
 	},
 });
