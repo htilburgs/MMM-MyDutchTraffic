@@ -229,19 +229,25 @@ Module.register('MMM-TT', {
       			if(this.pRoads.includes(road.road) || this.pRoads.includes("ALL")) 
       			{
 			
-//				if(this.pRoads.includes("ALL)
-        		for (var j1 of road.events.trafficJams){  
-//            		Log.log("pushing entry for road="+ road.road)	// uncomment to see if you're getting data (in dev console)
-            		this.jams.push({name: road.road, jam:j1})
-          		}
+				if(this.pRoads.includes("ALL) || this.pJams.includes(road.road))
+				{
+					for (var j1 of road.events.trafficJams){  
+//            				Log.log("pushing entry for road="+ road.road)	// uncomment to see if you're getting data (in dev console)
+            				this.jams.push({name: road.road, jam:j1})
+          			}
 			
-        		for (var construction of road.events.roadWorks){
-          		this.constructions.push({name: road.road,construction:construction})
-        		}
+				if(this.pRoads.includes("ALL) || this.pCons.includes(road.road))
+				{
+        				for (var construction of road.events.roadWorks){
+          				this.constructions.push({name: road.road,construction:construction})
+        			}
 			
-        		for (var radar of road.events.radars){
-          		this.radars.push({name: road.road,radar:radar})
-        		}
+				if(this.pRoads.includes("ALL) || this.pRad.includes(road.road))
+				{
+					for (var radar of road.events.radars){
+					this.radars.push({name: road.road,radar:radar})
+        			}
+			}
 		}
 	}
 		
