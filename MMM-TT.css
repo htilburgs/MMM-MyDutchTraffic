@@ -1,3 +1,14 @@
+/*
+//-------------------------------------------
+MMM-MyTraffic - CSS
+Copyright (C) 2019 - H. Tilburgs
+MIT License
+//-------------------------------------------
+The functions are annotated to make things as easy as possible for you.
+Use any colors you want! Go to - "http://htmlcolorcodes.com/color-picker/"
+Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green.
+*/
+
 @font-face {
   font-family: 'traffic';
   src:  url('fonts/traffic.eot?yxhtz');
@@ -167,4 +178,6 @@ hr {
     	color: dimgray;
     	background-color: dimgray;
     	border: none;
+	margin-block-start: 0.2em;
+	margin-block-end: 0.2em;
 }
