@@ -13,7 +13,10 @@ Module.register('MMM-TT', {
 		showJams: true,				// Show Traffic jams
 		showConstructions: false,		// Show Constructions
 		showRadars: false,			// Show Radar controles
-		preferredRoads: ['ALL'],		// Show All roads or show you're selection -> ['A1','A50','A67']
+		preferredRoads: ['ALL'],		// Show ALL roads or show selection -> ['A1','A50','A67']
+		pref_Jams: ['ALL'],			// Selection Jams (prefferedRoads: ['ALL'] and Jams selection ['A1','A2']
+		pref_Cons: ['ALL'],			// Selection Constructions (prefferedRoads: ['ALL'] and Cons selection ['A1','A2']
+		pref_Rad: ['ALL'],			// Selection Radars (prefferedRoads: ['ALL'] and Radar selection ['A1','A2']
 		maxWidth: "500px",			// Max width wrapper
 		largeIcons: false,			// Display Large or Small icons and information
 		animationSpeed: 1000, 			// fade in and out speed
@@ -211,15 +214,22 @@ Module.register('MMM-TT', {
     		this.constructions=[]
     		this.radars=[]
 			
-		// Convert preferredRoads Array to upper case
+		// Convert to upper case
 		var pRoads = this.config.preferredRoads;
+		var pJams = this.config.pref_Jams;
+		var pCons = this.config.pref_Cons;
+		var pRad = this.config.pref_Rad;
 		this.pRoads = pRoads.map(function(x){ return x.toUpperCase() })
+		this.pJams = pJams.map(function(x){ return x.toUpperCase() })
+		this.pCons = pCons.map(function(x){ return x.toUpperCase() })
+		this.pRad = pRad.map(function(x){ return x.toUpperCase() })
     		
 		for (var road of this.MTR.roadEntries){
 //     			Log.log(" typeof="+typeof this.pRoads)		// uncomment to see if you're getting data (in dev console)
       			if(this.pRoads.includes(road.road) || this.pRoads.includes("ALL")) 
       			{
 			
+//				if(this.pRoads.includes("ALL)
         		for (var j1 of road.events.trafficJams){  
 //            		Log.log("pushing entry for road="+ road.road)	// uncomment to see if you're getting data (in dev console)
             		this.jams.push({name: road.road, jam:j1})
