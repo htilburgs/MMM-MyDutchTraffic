@@ -14,6 +14,9 @@ Module.register('MMM-TT', {
 		showConstructions: false,		// Show Constructions
 		showRadars: false,			// Show Radar controles
 		preferredRoads: ['ALL'],		// Show All roads or show you're selection -> ['A1','A50','A67']
+		pref_Cons: ['ALL'],
+		pref_Jams: ['ALL'],
+		pref_Rad: ['ALL'],
 		maxWidth: "500px",			// Max width wrapper
 		largeIcons: false,			// Display Large or Small icons and information
 		animationSpeed: 1000, 			// fade in and out speed
@@ -213,27 +216,34 @@ Module.register('MMM-TT', {
 			
 		// Convert preferredRoads Array to upper case
 		var pRoads = this.config.preferredRoads;
+		var pJams = this.config.pref_Jams;
+		var pCons = this.config.pref_Cons;
+		var pRad = this.config.pref_Rad;
 		this.pRoads = pRoads.map(function(x){ return x.toUpperCase() })
+		this.pJams = pJams.map(function(x){ return x.toUpperCase() })
+		this.pCons = pCons.map(function(x){ return x.toUpperCase() })
+		this.pRad = pRad.map(function(x){ return x.toUpperCase() })
     		
+		// Fill Array with selected roads and information
 		for (var road of this.MTR.roadEntries){
-//     			Log.log(" typeof="+typeof this.pRoads)		// uncomment to see if you're getting data (in dev console)
-      			if(this.pRoads.includes(road.road) || this.pRoads.includes("ALL")) 
+     			Log.log(" typeof="+typeof this.pRoads)		// uncomment to see if you're getting data (in dev console)
+
+			if(this.pRoads.includes(road.road) || this.pRoads.includes("ALL")) 
       			{
+				for (var j1 of road.events.trafficJams){  
+				Log.log("pushing entry for road="+ road.road)	// uncomment to see if you're getting data (in dev console)
+				this.jams.push({name: road.road, jam:j1})
+				}
 			
-        		for (var j1 of road.events.trafficJams){  
-//            		Log.log("pushing entry for road="+ road.road)	// uncomment to see if you're getting data (in dev console)
-            		this.jams.push({name: road.road, jam:j1})
-          		}
+				for (var construction of road.events.roadWorks){
+				this.constructions.push({name: road.road,construction:construction})
+				}
 			
-        		for (var construction of road.events.roadWorks){
-          		this.constructions.push({name: road.road,construction:construction})
-        		}
-			
-        		for (var radar of road.events.radars){
-          		this.radars.push({name: road.road,radar:radar})
-        		}
+				for (var radar of road.events.radars){
+				this.radars.push({name: road.road,radar:radar})
+				}
+			}
 		}
-	}
 		
 //		console.log(this.MTR); // uncomment to see if you're getting data (in dev console)
 		this.loaded = true;
