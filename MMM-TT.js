@@ -236,11 +236,11 @@ Module.register('MMM-TT', {
 				}
 			
 				for (var construction of road.events.roadWorks){
-				this.constructions.push({name: road.road,construction:construction})
+				this.constructions.push({name: road.road, construction:construction})
 				}
 			
 				for (var radar of road.events.radars){
-				this.radars.push({name: road.road,radar:radar})
+				this.radars.push({name: road.road, radar:radar})
 				}
 			}
 		}
