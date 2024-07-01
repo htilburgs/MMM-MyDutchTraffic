@@ -7,7 +7,6 @@ MIT License
 */
 
 const NodeHelper = require('node_helper');
-const request = require('request');
 
 module.exports = NodeHelper.create({
 
@@ -15,6 +14,34 @@ module.exports = NodeHelper.create({
           console.log("Starting node_helper for: " + this.name);
   },
 
+getMDT: function(url) {
+        // Make a GET request using the Fetch API
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              console.error('MMM-MyDutchTraffic: Network response was not ok');
+            }
+            return response.json();
+          })
+
+          .then(result => {
+            // Process the retrieved user data
+            // console.log(result.data.timings); // Remove trailing slashes to display data in Console for testing
+            this.sendSocketNotification('MDT_RESULT', result);
+          })
+
+          .catch(error => {
+            console.error('Error:', error);
+          });
+  },
+
+ socketNotificationReceived: function(notification, payload) {
+            if (notification === 'GET_MDT') {
+            this.getMDT(payload);
+            }
+  },
+
+/*	
   getTRAFFIC: function(url) {
 	request({
 	url: url,
@@ -33,4 +60,5 @@ module.exports = NodeHelper.create({
             this.getTRAFFIC(payload);
             }
   }
+*/
 });
