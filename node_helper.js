@@ -1,8 +1,11 @@
 /*
 //-------------------------------------------
-MMM-MyTraffic
-Copyright (C) 2019 - H. Tilburgs
+MMM-MyDutchTraffic
+Copyright (C) 2024 - H. Tilburgs
 MIT License
+
+v1.0	: Initial release
+
 //-------------------------------------------
 */
 
@@ -41,24 +44,4 @@ getMDT: function(url) {
             }
   },
 
-/*	
-  getTRAFFIC: function(url) {
-	request({
-	url: url,
-	method: 'GET'
-	}, (error, response, body) => {
-	if (!error && response.statusCode == 200) {
-	var result = JSON.parse(body);							// JSON data path	
-	//console.log(response.statusCode + result);			// Uncomment to see in terminal for test purposes
-	this.sendSocketNotification('MYTRAFFIC_RESULT', result);
-	}
-        });
-    },
-
-  socketNotificationReceived: function(notification, payload) {
-            if (notification === 'GET_MYTRAFFIC') {
-            this.getTRAFFIC(payload);
-            }
-  }
-*/
 });
