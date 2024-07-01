@@ -27,7 +27,7 @@ Module.register('MMM-TT', {
 
 			
 	// Create lists of jams, construction-zones and radar positions, with their road name	
-	MTR: null,	
+	MDT: null,	
 	jams : [],
 	constructions : [],
 	radars : [],
@@ -56,7 +56,7 @@ Module.register('MMM-TT', {
 			
 		// Set locales
 		this.url = "https://api.rwsverkeersinfo.nl/api/traffic/"
-		this.MTR = [];			// <-- Create empty MyTraffic array
+		this.MDT = [];			// <-- Create empty MyTraffic array
 		this.scheduleUpdate();     	// <-- When the module updates (see below)
 	},
 
@@ -208,7 +208,7 @@ Module.register('MMM-TT', {
 		
 	
 	// this processes your data
-	processTRAFFIC: function (data) { 
+	processMDT: function (data) { 
 		this.MTR = data; 
     		this.jams=[]
     		this.constructions=[]
@@ -252,21 +252,21 @@ Module.register('MMM-TT', {
 	// this tells module when to update
 	scheduleUpdate: function () { 
 		setInterval(() => {
-		this.getTRAFFIC();
+		this.getMDT();
 		}, this.config.updateInterval);
-		this.getTRAFFIC();
+		this.getMDT();
 		var self = this;
 	},
 	  
 	// this asks node_helper for data
-	getTRAFFIC: function() { 
-		this.sendSocketNotification('GET_MYTRAFFIC', this.url);
+	getMDT: function() { 
+		this.sendSocketNotification('GET_MDT', this.url);
 	},
 	
 	// this gets data from node_helper
 	socketNotificationReceived: function(notification, payload) { 
-		if (notification === "MYTRAFFIC_RESULT") {
-		this.processTRAFFIC(payload);
+		if (notification === "MDT_RESULT") {
+		this.processMDT(payload);
         	this.updateDom(100);
 		}
 		//this.updateDom(this.config.initialLoadDelay);		// For testing purposes
