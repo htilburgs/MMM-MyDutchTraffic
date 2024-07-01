@@ -1,4 +1,4 @@
-# MMM-MyTraffic
+# MMM-MyDutchTraffic
 MMM-Mytraffic is a MagicMirror module for dutch traffic information, using real-time information from the ANWB.
 
 ![Screenshot](screenshot01.png)
@@ -9,7 +9,7 @@ Clone this repository in your modules folder, and install dependencies:
 
 ```
 cd ~/MagicMirror/modules 
-git clone https://github.com/htilburgs/MMM-MyTraffic
+git clone https://github.com/htilburgs/MMM-MyDutchTraffic
 ```
 
 ## Configuration
@@ -18,7 +18,7 @@ Add the module to your modules array in your config.js.
 
 ```
 {
-  module: 'MMM-MyTraffic',
+  module: 'MMM-MyDutchTraffic',
   position: 'top_left',
   header: 'My Traffic Information',
   config: {
