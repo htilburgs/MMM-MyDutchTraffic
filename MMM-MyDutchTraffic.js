@@ -1,12 +1,12 @@
 /*
 //-------------------------------------------
-MMM-MyTraffic
+MMM-MyTDutchraffic
 Copyright (C) 2019 - H. Tilburgs
 MIT License
 //-------------------------------------------
 */
 
-Module.register('MMM-TT', {
+Module.register('MMM-MyDutchTraffic', {
 
 	// Default values
 	defaults: {
