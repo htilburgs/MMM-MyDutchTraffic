@@ -55,8 +55,8 @@ Module.register('MMM-TT', {
 		requiresVersion: "2.1.0",	
 			
 		// Set locales
-		this.url = "https://www.anwb.nl/feeds/gethf"
-		this.MTR = [];				// <-- Create empty MyTraffic array
+		this.url = "https://api.rwsverkeersinfo.nl/api/traffic/"
+		this.MTR = [];			// <-- Create empty MyTraffic array
 		this.scheduleUpdate();     	// <-- When the module updates (see below)
 	},
 
