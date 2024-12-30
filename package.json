@@ -1,0 +1,9 @@
+{
+  "name": "MMM-TrafficInfo",
+  "version": "1.0.0",
+  "description": "Displays traffic information from RWS Verkeersinfo API",
+  "main": "MMM-TrafficInfo.js",
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
