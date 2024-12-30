@@ -30,7 +30,7 @@ Module.register('MMM-MyDutchTraffic', {
   radars: [],
 
   getStyles() {
-    return ['MMM-TT.css'];
+    return ['MMM-MyDutchTraffic.css'];
   },
 
   getScripts() {
