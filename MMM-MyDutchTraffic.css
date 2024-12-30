@@ -1,183 +1,28 @@
-/*
-//-------------------------------------------
-MMM-MyTraffic - CSS
-Copyright (C) 2019 - H. Tilburgs
-MIT License
-//-------------------------------------------
-The functions are annotated to make things as easy as possible for you.
-Use any colors you want! Go to - "http://htmlcolorcodes.com/color-picker/"
-Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green.
-*/
-
-@font-face {
-  font-family: 'traffic';
-  src:  url('fonts/traffic.eot?yxhtz');
-  src:  url('fonts/traffic.eot?yxhtz#iefix') format('embedded-opentype'),
-    url('fonts/traffic.ttf?yxhtz') format('truetype'),
-    url('fonts/traffic.woff?yxhtz') format('woff'),
-    url('fonts/traffic.svg?yxhtz#traffic') format('svg');
-  font-weight: normal;
-  font-style: normal;
+.traffic-wrapper {
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-[class^="tr-"], [class*=" tr-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'traffic' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.traffic-header {
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
-.tr-traffic-camera:before {
-  content: "\e900";
-  color: red;
+.traffic-section {
+  margin-bottom: 20px;
 }
 
-.tr-traffic-jam:before {
-  content: "\e901";
-  color: yellow;
+.traffic-entry {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
-.tr-traffic-cone:before {
-  content: "\e902";
-  color: orange;
+.traffic-icon {
+  margin-right: 10px;
+  font-size: 18px;
 }
 
-.jamsInformation {
-	font-family: Roboto;
-	margin-left: 10px;
-	color: white;
-	padding-top: 3px;
-	color: #fff;
-	width: auto;
-	line-height: 20px;
-	text-align: left;
-}
-
-.jamsDescription {
-	font-family: Roboto;
-	margin-left: 10px;
-	color: white;
-	padding-left: 19px;
-	padding-top: 3px;
-	color: #fff;
-	width: auto;
-	line-height: 20px;
-	text-align: left;
-	margin-block-start: 0.1em;
-	margin-block-end: 0.1em;
-}
-
-.radarInformation {
-	font-family: Roboto;
-	margin-left: 10px;
-	color: white;
-	padding-top: 3px;
-	color: #fff;
-	width: auto;
-	line-height: 20px;
-	text-align: left;
-}
-
-.consInformation {
-	font-family: Roboto;
-	margin-left: 10px;
-	color: white;
-	padding-top: 3px;
-	color: #fff;
-	width: auto;
-	line-height: 20px;
-	text-align: left;
-}
-
-.consDescription {
-	font-family: Roboto;
-	margin-left: 10px;
-	color: white;
-	padding-left: 19px;
-	padding-top: 3px;
-	color: #fff;
-	width: auto;
-	line-height: 20px;
-	text-align: left;
-	margin-block-start: 0.1em;
-	margin-block-end: 0.1em;
-}
-
-.wrapper {}
-
-.trafficicon-jam {
-	background-image: url(icons/trafficjam.png);
-	background-repeat: no-repeat;
-	display: block;
-	width: 256px;
-	height: 256px;
-  	background-color: yellow;
-}
-
-.trafficicon-camera {
-	background-image: url(icons/camera.png);
-	background-repeat: no-repeat;
-	display: block;
-	width: 256px;
-	height: 256px;
-  	background-color: red;
-}
-
-.trafficicon-construction {
-	background-image: url(icons/cone.png);
-	background-repeat: no-repeat;
-	display: block;
-	width: 256px;
-	height: 256px;
-  	background-color: orange;
-}
-
-.small-icon {
-	float: left;
-	position: absolute;
-	zoom: .18;
-	-moz-transform: scale(.18);
-	/* Firefox */
-	-moz-transform-origin: 0 0;
-}
-
-.description {
-	font-family: Roboto;
-	margin-left: 10px;
-	color: white;
-	padding-left: 50px;
-	padding-top: 3px;
-	color: #fff;
-	width: auto;
-	line-height: 20px;
-	text-align: left;
-}
-
-.event {
-	font-family: Roboto;
-	margin-left: 10px;
-	color: white;
-	padding-left: 50px;
-	padding-top: 3px;
-	color: #fff;
-	width: auto;
-	line-height: 20px;
-	text-align: left;
-}
-
-hr {
-	height: 1px;
-    	color: dimgray;
-    	background-color: dimgray;
-    	border: none;
-	margin-block-start: 0.2em;
-	margin-block-end: 0.2em;
+.traffic-text {
+  flex-grow: 1;
 }
