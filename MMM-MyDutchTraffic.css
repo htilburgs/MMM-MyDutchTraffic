@@ -1,28 +1,10 @@
-.traffic-wrapper {
-  font-size: 14px;
-  line-height: 1.5;
+.MMM-TrafficInfo ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-.traffic-header {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.traffic-section {
-  margin-bottom: 20px;
-}
-
-.traffic-entry {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.traffic-icon {
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-.traffic-text {
-  flex-grow: 1;
+.MMM-TrafficInfo li {
+    font-size: 1.2em;
+    margin-bottom: 5px;
 }
