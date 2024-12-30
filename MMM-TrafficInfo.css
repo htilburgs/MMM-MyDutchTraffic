@@ -1,0 +1,10 @@
+.MMM-TrafficInfo ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.MMM-TrafficInfo li {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
